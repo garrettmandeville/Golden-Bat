@@ -3,7 +3,7 @@
 Audio files are not included in this repository. The game runs silently without them;
 any file listed below that is present will be picked up automatically.
 
-File names and their in-game keys are defined at the top of [`audio.py`](../audio.py).
+File names and their in-game keys are defined in [`data/audio.json`](../data/audio.json).
 
 ```
 assets/
@@ -29,6 +29,9 @@ assets/
 │   ├── street.mp3
 │   └── tech.mp3
 └── SFX/
+    ├── marie1.wav
+    ├── marie2.wav
+    ├── marie3.wav
     ├── laugh.wav
     ├── bats.wav
     ├── scifi.wav

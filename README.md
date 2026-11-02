@@ -2,9 +2,11 @@
 
 **Golden Bat** is a text-based atmospheric adventure game written in Python. Explore the ruins of Atlantis, collect 7 legendary relics, and defeat the mysterious Dr. Nazō before the rogue planet Icarus crashes into Earth!
 
+> **Unofficial fan game.** Inspired by the 1967 anime *Golden Bat* (*Ōgon Bat*). Not affiliated with or endorsed by the rights holders. See [Disclaimer](#%EF%B8%8F-disclaimer).
+
 ## 🌟 Features
 - **Classic Text-Adventure Gameplay:** Navigate rooms, search for items, and uncover secrets using terminal commands.
-- **Immersive Audio:** Features a fully integrated soundtrack and sound effects using `pygame.mixer` to set the mood for every room.
+- **Optional Audio:** Per-room music and sound effects via `pygame.mixer`. Audio files aren't included; the game runs silently without them, and picks up any you add (see [assets/README.md](assets/README.md)).
 - **Multiple Endings:** Your inventory and exploration determine the fate of Earth. Can you unlock the True Ending?
 - **Retro Terminal Aesthetic:** Dynamic scrolling text with inline delays, color formatting, and cinematic screen clears.
 
@@ -21,12 +23,19 @@ If you want to run or modify the raw Python code:
 2. Clone this repository to your local machine.
 3. Install the required dependencies:
    ```bash
-   pip install pygame
+   pip install pygame-ce
    ```
 4. Run the main script:
    ```bash
    python main.py
    ```
+
+### Building the Executable
+```bash
+pip install pyinstaller
+python -m PyInstaller main.spec
+```
+The executable appears in `dist/`. The build bundles everything in `assets/`, so only build from a folder containing audio you have the rights to distribute.
 
 ## 🕹️ Commands
 Type these actions when prompted to interact with the world:
@@ -38,9 +47,22 @@ Type these actions when prompted to interact with the world:
 - `laugh` - Unleash the signature Golden Bat laugh!
 - `quit` - Abandon the mission and exit the game.
 
+## 🗂️ Project Structure
+```
+main.py        Entry point
+goldenbat/     Game engine (game loop, commands, cinematics, text, audio)
+data/          Game content as JSON (rooms, items, story, audio config)
+assets/        Audio files (not included)
+docs/          Design document
+```
+Rooms, items, and story text live in `data/`, so new content can be written without touching the engine. The roadmap for the expanded three-act version is in [docs/DESIGN.md](docs/DESIGN.md). The original 12-room version is preserved on the `classic` branch.
+
 ## 🛠️ Built With
 * **Python 3**
-* **Pygame** - Utilized for the audio engine (BGM loops, SFX playback, and volume fading).
+* **pygame-ce** - Utilized for the audio engine (BGM loops, SFX playback, and volume fading).
+
+## ⚖️ Disclaimer
+This is a non-commercial fan project. *Golden Bat* (*Ōgon Bat*) and its characters belong to their respective rights holders. All code and original story content in this repository are by the author.
 
 ## 👨‍💻 Author
 **Garrett Mandeville**

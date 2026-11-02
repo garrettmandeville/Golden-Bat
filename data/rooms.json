@@ -1,0 +1,80 @@
+{
+  "start": "Ancient Tomb",
+  "rooms": {
+    "Ancient Tomb": {
+      "description": "A silent chamber of white stone. In the center lies the golden sarcophagus where Golden Bat slept for 10,000 years.\n[marie3]Marie sits in the corner of the tomb, weeping...",
+      "music": ["tomb", 0.8],
+      "exits": {"East": "Secret Tunnel"},
+      "hidden_exits": {
+        "North": {"to": "Echoing Gallery", "flag": "secret_path_open"}
+      },
+      "item": "Silver Baton",
+      "secrets": [
+        {"flag": "secret_path_open", "text": "You walk to the back of the tomb and see a small crack in the wall, leading north to some secret room..."}
+      ]
+    },
+    "Echoing Gallery": {
+      "description": "\nThe room is filled with ancient wooden frames.\nInstead of statues, you see a series of painted boards depicting a golden figure saving children from monsters.\nA faint smell of candy fills the air — a memory of the sweets sold to children before the show began.\nA plaque reads: 'Before the screen, there was the paper. Before the comic, there was the street...'",
+      "music": ["gallery", 0.6],
+      "exits": {"South": "Ancient Tomb"},
+      "item": "Botan Rice Candy"
+    },
+    "Secret Tunnel": {
+      "description": "A narrow, damp passageway lit by faint bioluminescent moss. It connects the tomb to the surface ruins...",
+      "music": ["tunnel", 0.4],
+      "exits": {"West": "Ancient Tomb", "North": "Shipwrecked Beach"}
+    },
+    "Shipwrecked Beach": {
+      "description": "White sands littered with the wreckage of Professor Mire's ship. The Pacific waves crash against jagged rocks...",
+      "music": ["beach", 0.4],
+      "exits": {"East": "Abandoned Church", "South": "Secret Tunnel", "North": "Ocean-Facing Cliffs"}
+    },
+    "Ocean-Facing Cliffs": {
+      "description": "High, windswept precipices overlooking the vast ocean. From here, you can see the faint glimmer of the lost city below...",
+      "music": ["cliffs", 0.4],
+      "exits": {"East": "Abandoned Residential District", "South": "Shipwrecked Beach"},
+      "item": "Red Cape"
+    },
+    "Abandoned Residential District": {
+      "description": "Crumbling stone houses that once housed the people of Atlantis. Vines choke the ancient architecture...",
+      "music": ["town", 0.8],
+      "exits": {"West": "Ocean-Facing Cliffs", "East": "Rusted Armory"}
+    },
+    "Rusted Armory": {
+      "description": "A chamber filled with decayed bronze weapons and empty racks that once held the military might of a lost empire...",
+      "music": ["armory", 0.2],
+      "exits": {"West": "Abandoned Residential District", "South": "Ancient Atlantean Lab"},
+      "item": "Swashbuckler Armor"
+    },
+    "Abandoned Church": {
+      "description": "A towering structure with vaulted ceilings. Ancient symbols are carved into the stone...",
+      "music": ["church", 0.4],
+      "exits": {"South": "Church Cellar", "East": "Ancient Atlantean Lab", "West": "Shipwrecked Beach"},
+      "item": "Hydroflask"
+    },
+    "Church Cellar": {
+      "description": "A dark, cramped basement filled with crates of old scrolls and strange, humming minerals...",
+      "music": ["cellar", 0.4],
+      "exits": {"North": "Abandoned Church"},
+      "item": "Kinesis Stone"
+    },
+    "Ancient Atlantean Lab": {
+      "description": "A massive hall filled with advanced machinery and glowing crystalline computers from a forgotten science...",
+      "music": ["lab", 1.0],
+      "exits": {"North": "Rusted Armory", "South": "Submerged Observation Deck", "West": "Abandoned Church", "East": "Hall of Ancient Tech"},
+      "item": "Spectral Reins"
+    },
+    "Submerged Observation Deck": {
+      "description": "A glass-domed room beneath the waves. You can see the aquatic life of Atlantis swimming past the reinforced glass...",
+      "music": ["observatory", 0.6],
+      "exits": {"North": "Ancient Atlantean Lab"},
+      "item": "Icarus Data"
+    },
+    "Hall of Ancient Tech": {
+      "description": "",
+      "music": ["tech", 0.6],
+      "exits": {"West": "Ancient Atlantean Lab"},
+      "villain": "Nazo"
+    }
+  }
+}

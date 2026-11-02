@@ -1,0 +1,36 @@
+{
+  "music": {
+    "title": "Music/title_screen.mp3",
+    "intro": "Music/intro.mp3",
+    "overworld": "Music/overworld.mp3",
+    "boss": "Music/boss.mp3",
+    "true_credits": "Music/credits_true.mp3",
+    "win_credits": "Music/credits_win.mp3",
+    "lose_credits": "Music/credits_lose.mp3",
+    "tomb": "Rooms/tomb.mp3",
+    "tunnel": "Rooms/tunnel.mp3",
+    "beach": "Rooms/beach.mp3",
+    "cliffs": "Rooms/cliffs.mp3",
+    "church": "Rooms/church.mp3",
+    "cellar": "Rooms/cellar.mp3",
+    "town": "Rooms/town.mp3",
+    "armory": "Rooms/armory.mp3",
+    "lab": "Rooms/lab.mp3",
+    "observatory": "Rooms/observatory.mp3",
+    "gallery": "Rooms/street.mp3",
+    "tech": "Rooms/tech.mp3"
+  },
+  "sfx": {
+    "marie1": "SFX/marie1.wav",
+    "marie2": "SFX/marie2.wav",
+    "marie3": "SFX/marie3.wav",
+    "laugh": "SFX/laugh.wav",
+    "bats": "SFX/bats.wav",
+    "scifi": "SFX/scifi.wav",
+    "item": "SFX/item.wav",
+    "quit": "SFX/quit.wav",
+    "icarus": "SFX/icarus_impact.wav",
+    "walk": "SFX/walk.wav"
+  },
+  "fallback_room_music": ["overworld", 0.4]
+}

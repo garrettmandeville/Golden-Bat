@@ -1,0 +1,37 @@
+{
+  "Silver Baton": {
+    "description": "An indestructible silver scepter that can fire energy rays.",
+    "relic": true
+  },
+  "Red Cape": {
+    "description": "A high-collared cape that grants flight and invisibility.",
+    "relic": true
+  },
+  "Swashbuckler Armor": {
+    "description": "Ornate Atlantean plating that grants invulnerability.",
+    "relic": true
+  },
+  "Hydroflask": {
+    "description": "A vessel holding the water needed to awaken the God of Justice.",
+    "relic": true
+  },
+  "Kinesis Stone": {
+    "description": "An ancient relic granting the user powers of terrakinesis and aerokinesis.",
+    "relic": true,
+    "on_pickup": {
+      "set_flag": "secret_path_open",
+      "text": "(!) THE KINESIS STONE VIBRATES... (!)"
+    }
+  },
+  "Spectral Reins": {
+    "description": "Ethereal bindings used to control giant ancient machines.",
+    "relic": true
+  },
+  "Icarus Data": {
+    "description": "Critical data about the rogue planet's collision course.",
+    "relic": true
+  },
+  "Botan Rice Candy": {
+    "description": "A classic Japanese treat with an edible wrapper. It smells sweet, like fortune and nostalgia."
+  }
+}
