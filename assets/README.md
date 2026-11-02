@@ -9,6 +9,9 @@ File names and their in-game keys are defined at the top of [`audio.py`](../audi
 assets/
 ├── Music/
 │   ├── title_screen.mp3
+│   ├── intro.mp3
+│   ├── overworld.mp3
+│   ├── boss.mp3
 │   ├── credits_true.mp3
 │   ├── credits_win.mp3
 │   └── credits_lose.mp3
@@ -23,12 +26,14 @@ assets/
 │   ├── armory.mp3
 │   ├── lab.mp3
 │   ├── observatory.mp3
-│   └── street.mp3
+│   ├── street.mp3
+│   └── tech.mp3
 └── SFX/
     ├── laugh.wav
     ├── bats.wav
     ├── scifi.wav
     ├── item.wav
     ├── quit.wav
-    └── icarus_impact.wav
+    ├── icarus_impact.wav
+    └── walk.wav
 ```

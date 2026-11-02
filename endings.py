@@ -19,23 +19,24 @@ def check_endings(room_data, inventory, relics, story):
     """
     if 'villain' in room_data:
         audio.stop()
+        audio.play_bgm("boss")
         has_relics = all(item in inventory for item in relics)
         has_candy = 'Botan Rice Candy' in inventory
 
         # Route ending narrative branch
         if has_relics and has_candy:
             ending_beats = story['true_ending']
-            audio.play_bgm("true_credits")
+            credits_track = "true_credits"
             ending_type = "THE TRUE ENDING!"
             final_msg = "You are a master of Atlantis."
         elif has_relics:
             ending_beats = story['win_ending']
-            audio.play_bgm("win_credits")
+            credits_track = "win_credits"
             ending_type = "YOU WIN!"
             final_msg = "Earth is saved from the rogue planet Icarus."
         else:
             ending_beats = story['lose_ending']
-            audio.play_bgm("lose_credits")
+            credits_track = "lose_credits"
             ending_type = "GAME OVER!"
             final_msg = "Dr. Nazō has captured Golden Bat and Icarus impacts Earth."
 
@@ -49,6 +50,7 @@ def check_endings(room_data, inventory, relics, story):
                 clear()
 
         # Render final banner
+        audio.play_bgm(credits_track)
         print("\n" + "*" * 30)
         scroll_text(ending_type, delay = 0.1, color = GOLD)
         scroll_text(final_msg, delay = 0.1)
@@ -56,7 +58,6 @@ def check_endings(room_data, inventory, relics, story):
 
         # Specific lose condition sfx
         if not has_relics:
-            audio.stop()
             audio.play_sfx("icarus")
 
         audio.fade(10000)

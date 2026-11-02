@@ -73,6 +73,7 @@ def handle_actions(user_input, current_room, room_data, rooms, inventory, item_d
     elif action == 'go':
         if target in room_data:
             current_room = room_data[target]
+            audio.play_sfx("walk")
             scroll_text(f"\nYou move {target} to the {current_room}...")
             pause()
             audio.fade(500)

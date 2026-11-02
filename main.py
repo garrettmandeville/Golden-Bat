@@ -6,7 +6,6 @@ Description: Initializes game state, imports system modules, and manages
              the primary gameplay input-evaluation loop.
 """
 
-import pygame
 from audio import audio
 from story import get_story_text, scroll_text, pause, clear, GOLD, RESET
 from rooms import get_rooms, get_room_description, get_item_description

@@ -13,8 +13,9 @@ import time, os, sys, pygame
 # Background music: key -> path relative to the assets folder
 MUSIC_FILES = {
     "title": "Music/title_screen.mp3",
-    "bgm": "Music/main_bgm.mp3",
-    
+    "intro": "Music/intro.mp3",
+    "overworld": "Music/overworld.mp3",
+    "boss": "Music/boss.mp3",
     "true_credits": "Music/credits_true.mp3",
     "win_credits": "Music/credits_win.mp3",
     "lose_credits": "Music/credits_lose.mp3",
@@ -29,6 +30,7 @@ MUSIC_FILES = {
     "lab": "Rooms/lab.mp3",
     "observatory": "Rooms/observatory.mp3",
     "gallery": "Rooms/street.mp3",
+    "tech": "Rooms/tech.mp3",
 }
 
 # Sound effects: key -> path relative to the assets folder
@@ -39,6 +41,7 @@ SFX_FILES = {
     "item": "SFX/item.wav",
     "quit": "SFX/quit.wav",
     "icarus": "SFX/icarus_impact.wav",
+    "walk": "SFX/walk.wav",
 }
 
 # Room name -> (music key, volume)
@@ -54,7 +57,11 @@ ROOM_MUSIC = {
     "Ancient Atlantean Lab": ("lab", 1.0),
     "Submerged Observation Deck": ("observatory", 0.6),
     "Echoing Gallery": ("gallery", 0.6),
+    "Hall of Ancient Tech": ("tech", 0.6),
 }
+
+# Played in any room without its own track (or whose track file is missing)
+FALLBACK_ROOM_MUSIC = ("overworld", 0.4)
 
 
 def default_assets_dir():
@@ -150,10 +157,11 @@ class AudioManager:
             time.sleep(duration / 1000)
 
     def get_room_music(self, current_room):
-        """Triggers room-specific ambient background music."""
-        if current_room in ROOM_MUSIC:
-            key, volume = ROOM_MUSIC[current_room]
-            self.play_bgm(key, volume=volume)
+        """Triggers room-specific ambient background music, falling back to the overworld track."""
+        key, volume = ROOM_MUSIC.get(current_room, FALLBACK_ROOM_MUSIC)
+        if key not in self.music:
+            key, volume = FALLBACK_ROOM_MUSIC
+        self.play_bgm(key, volume=volume)
 
 # Shared global instance
 audio = AudioManager()

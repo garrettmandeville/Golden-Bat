@@ -13,6 +13,7 @@ def display_title():
     """Displays ASCII title card and plays title BGM."""
     clear()
     audio.play_bgm("title")
+    audio.play_sfx("bats")
     if 'TERM' not in os.environ:
         os.environ['TERM'] = 'xterm'
 
@@ -38,6 +39,7 @@ def intro_sequence(prologue):
         skip = input("\n\nWould you like to read the prologue? (y/n): ").lower()
         if skip == 'y':
             clear()
+            audio.play_bgm("intro")
             for beat in prologue:
                 wrapped = textwrap.fill(beat["text"], width = 70)
                 scroll_text(wrapped)
