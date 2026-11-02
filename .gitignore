@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+.venv/
+
+# PyInstaller
+build/
+dist/
+*.spec
+GoldenBat.exe
+
+# IDE
+.idea/
+
+# Audio is not distributed with the repo - see assets/README.md
+assets/**/*.mp3
+assets/**/*.wav
+assets/**/*.ogg
+unused audio/
