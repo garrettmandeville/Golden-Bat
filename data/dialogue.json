@@ -1,0 +1,82 @@
+{
+  "marie": {
+    "name": "MARIE MIRE",
+    "aliases": ["marie", "marie mire"],
+    "first_meeting": [
+      "MARIE: 'You... you're real. The book said you would come.'",
+      "[gold]GOLDEN BAT: 'Child. You called, and I have answered. Who has brought evil to this place?'",
+      "MARIE: 'Dr. Nazō. His machine sank my father's ship... My father is gone.'",
+      "[gold]GOLDEN BAT: 'Then Nazō will answer for it.'",
+      "MARIE: 'His soldiers are everywhere in the ruins. I'll stay here and study Father's notes. And if you fall... I still have a little water left.'"
+    ],
+    "hints": [
+      {"requires": {"not_items": ["Silver Baton"]}, "text": "There's a silver scepter inside the sarcophagus. Father's notes call it the Silver Baton. Take it. You'll need it."},
+      {"requires": {"not_flags": ["tunnel_trooper_defeated"]}, "text": "I heard boots in the tunnel to the east. Nazō's men are close."},
+      {"requires": {"not_flags": ["church_spirit_defeated"]}, "text": "Father wrote that the ghosts of Atlantis can't be touched by fist or wind. Only light can reach them. The silver kind."},
+      {"requires": {"not_items": ["Kinesis Stone"]}, "text": "Father wrote about a humming stone beneath the church, a stone that moves earth and air. The church is east of the beach."},
+      {"requires": {"not_items": ["Red Cape"]}, "text": "From the cliffs north of the beach, Father once saw something red on the rocks below. 'A cape,' he wrote, 'beyond the reach of any hand.' Maybe the stone could help?"},
+      {"requires": {"not_flags": ["five_finger_awake"]}, "text": "Father's notes describe a glass room beneath the sea, south of the laboratory. If anything can show us what Nazō is planning, it's there."},
+      {"requires": {"not_flags": ["five_finger_defeated"]}, "text": "Five Finger is heading for the beach! Please... stop it, Golden Bat."}
+    ],
+    "default_hint": "I'll keep reading Father's notes. There's so much I don't understand yet.",
+    "rest": "You rest beside the sarcophagus while Marie keeps watch, humming a French lullaby her father used to sing.",
+    "quests": [
+      {
+        "id": "radio",
+        "name": "The Ship Radio",
+        "items": ["Ship Radio"],
+        "flag": "radio_fixed",
+        "beats": [
+          "Marie turns the radio over in her hands, then pries off the back with a hairpin.",
+          "Static... static... then a voice, faint and frantic:",
+          "PROF. YAMATONE: 'This is Professor Yamatone of the Pearl Research Institute! Marie, is that you?! Thank heavens!'",
+          "MARIE: 'Professor! I'm alive, and... I'm not alone.'"
+        ]
+      },
+      {
+        "id": "journal",
+        "name": "Father's Journal",
+        "items": ["Journal Page I", "Journal Page II", "Journal Page III"],
+        "flag": "journal_complete",
+        "beats": [
+          "Marie presses the three pages together, smoothing them flat.",
+          "MARIE: 'There's a drawing on the back... a flask. And a note: \"The water of the Hydroflask can wake more than gods.\"'",
+          "She unscrews her last canteen and holds it out to you.",
+          "MARIE: 'Take one more drop. Just in case.'"
+        ],
+        "reward": {"drops": 1}
+      }
+    ]
+  },
+  "yamatone": {
+    "name": "PROF. YAMATONE (RADIO)",
+    "lines": [
+      {"requires": {"not_flags": ["five_finger_defeated"]}, "text": "Golden Bat! The legends are true! Listen: Nazō needs the special lens to finish his Spectral Cannon, and our institute needs it to stop Icarus. And beware his robot, Five Finger. I've studied its design. When it raises that palm, it commits all its power to one blow. Knock it off balance, or don't be there when it lands!"}
+    ],
+    "default": "Icarus is getting closer every hour. I'm working on a way to reach you both. Hold on!"
+  },
+  "sentinel": {
+    "name": "BRONZE SENTINEL",
+    "aliases": ["sentinel", "bronze sentinel", "guardian", "statue"],
+    "talks": [
+      {
+        "requires": {"items": ["Silver Baton"], "not_flags": ["sentinel_blessing"]},
+        "beats": [
+          "The bronze giant's eyes flicker with green fire. Its spear lowers.",
+          "SENTINEL: 'THE BATON... THE GOLDEN JUDGE HAS RETURNED.'",
+          "SENTINEL: 'TEN THOUSAND YEARS I HAVE GUARDED THIS HALL. TAKE THIS, JUDGE: THE WATER OF OUR LAST SPRING.'",
+          "[gold]GOLDEN BAT: 'Rest now, old soldier. Your watch is ended.'"
+        ],
+        "set_flags": ["sentinel_blessing"],
+        "reward": {"drops": 1}
+      },
+      {
+        "requires": {"flags": ["sentinel_blessing"]},
+        "text": "The sentinel stands motionless, its eyes dark. At peace."
+      },
+      {
+        "text": "The sentinel's spear swings down to bar your way. 'ONLY THE JUDGE MAY SPEAK HERE.' It falls silent."
+      }
+    ]
+  }
+}

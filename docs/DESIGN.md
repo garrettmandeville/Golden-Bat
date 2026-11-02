@@ -113,12 +113,17 @@ goldenbat/           Engine
   cinematics.py      Title, prologue, endings
   text.py            Typewriter text and inline tags
   audio.py           Optional music and sound effects
+  combat.py          Turn-based battles
+  npcs.py            Marie, Yamatone's radio, other characters
+  save.py            Save file
   data.py            JSON loading
   paths.py           File paths (works in PyInstaller builds)
 data/                Content
-  rooms.json         Map, descriptions, exits, secrets, room music
-  items.json         Items, relics, pickup effects
-  story.json         Prologue, endings, and ending conditions
+  rooms.json         Map, exits, encounters, events, secrets, interactions
+  items.json         Items, relics and their abilities, consumables
+  enemies.json       Enemy stats, moves, and dialogue
+  dialogue.json      Marie, Yamatone, and other characters; quests
+  story.json         Cutscenes, endings, and ending conditions
   audio.json         Audio file names and keys
 assets/              Audio files (not distributed)
 ```
@@ -130,7 +135,9 @@ Story text supports inline tags: `[slow]`, `[fast]`, `[norm]`, `[gold]`, `[reset
 
 Each phase is playable and committed on its own.
 
-1. **Engine and data files.** The classic game rebuilt on the new engine, playing the same as `classic`.
-2. **Act I.** HP, Energy, combat, relic abilities, Marie, saving, and the Act I content.
+1. ✅ **Engine and data files.** The classic game rebuilt on the new engine, playing the same as `classic`.
+2. ✅ **Act I.** HP, Energy, combat, relic abilities, Marie, saving, and the Act I content.
+   The build currently ends at the Act I cliffhanger; the remaining four relics and the
+   endings return in Acts II and III.
 3. **Act II.** The Sunken City.
 4. **Act III.** The fortress, the finale, the three endings, and README updates.

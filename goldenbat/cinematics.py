@@ -5,12 +5,17 @@ Description: Title card, prologue, objective screen, and scripted endings. All s
              text comes from data/story.json.
 """
 
-import os, time, textwrap
+import os
 from goldenbat.audio import audio
-from goldenbat.text import scroll_text, pause, clear, GOLD, RESET
+from goldenbat.text import scroll_text, play_beats, pause, clear, GOLD, RESET
 
-def display_title():
-    """Displays ASCII title card and plays title BGM."""
+def display_title(has_save = False):
+    """
+    Displays ASCII title card and plays title BGM.
+
+    Returns:
+        str: "new" or "continue".
+    """
     clear()
     audio.play_bgm("title")
     audio.play_sfx("bats")
@@ -30,17 +35,16 @@ def display_title():
     """
 
     print(GOLD + title + RESET)
-    input(f"{GOLD}                           [ PRESS ENTER TO AWAKEN ]{RESET}")
-    clear()
+    if not has_save:
+        input(f"{GOLD}                           [ PRESS ENTER TO AWAKEN ]{RESET}")
+        clear()
+        return "new"
 
-def play_beats(beats):
-    """Scrolls a list of story beats ({text, pause, clear}) from data/story.json."""
-    for beat in beats:
-        wrapped = textwrap.fill(beat["text"], width = 70)
-        scroll_text(wrapped)
-        time.sleep(beat["pause"])
-        if beat["clear"]:
+    while True:
+        choice = input(f"{GOLD}                    [1] NEW GAME      [2] CONTINUE{RESET}\n  > ").strip()
+        if choice in ('1', '2'):
             clear()
+            return "new" if choice == '1' else "continue"
 
 def intro_sequence(story):
     """Prompts player to read or skip the prologue, then shows the objective screen."""
@@ -70,6 +74,7 @@ def game_start_message(story):
     scroll_text(story["game_start"])
     pause(3.0)
     clear()
+    play_beats(story["act1_intro"])
 
 def requirements_met(state, requires):
     """Checks an ending's 'requires' block from data/story.json against the game state."""

@@ -5,11 +5,12 @@ Description: Controls the typewriter-style text scroller, its inline tags (color
              audio triggers, delays), and terminal screen clears.
 """
 
-import sys, time, os
+import sys, time, os, textwrap
 from goldenbat.audio import audio
 
 # ANSI Terminal Colors
 GOLD = '\033[33m'
+RED = '\033[31m'
 RESET = '\033[0m'
 
 def pause(seconds = 2.0):
@@ -76,3 +77,19 @@ def scroll_text(text, delay = 0.03, color = None):
 
     sys.stdout.write(RESET)
     print("\n")
+
+def play_beats(beats):
+    """
+    Scrolls a list of story beats from the data files.
+
+    Each beat is either a dict {"text", "pause", "clear"} or a plain string, which is
+    shorthand for a 1.5 second pause without clearing the screen.
+    """
+    for beat in beats:
+        if isinstance(beat, str):
+            beat = {"text": beat, "pause": 1.5, "clear": False}
+        wrapped = textwrap.fill(beat["text"], width = 70)
+        scroll_text(wrapped)
+        time.sleep(beat["pause"])
+        if beat["clear"]:
+            clear()

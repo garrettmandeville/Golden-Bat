@@ -57,7 +57,85 @@
     }
   ],
   "prologue_laugh": "[gold]GOLDEN BAT: 'ha-ha-ha-HA-HA-HAAA…!!!'[reset]",
-  "game_start": "\nWELCOME TO [gold]GOLDEN BAT[reset]. EXPLORE THE RUINS OF ATLANTIS, FIND AND COLLECT 7 RELICS, AND DEFEAT THE MYSTERIOUS DR. NAZŌ...",
+  "game_start": "\nWELCOME TO [gold]GOLDEN BAT[reset]. DRIVE DR. NAZŌ FROM THE RUINS OF ATLANTIS, RECOVER THE LOST RELICS, AND SAVE THE EARTH FROM THE ROGUE PLANET ICARUS...",
+  "act1_intro": [
+    {
+      "text": "[gold][slow]ACT I — THE RUINS OF ATLANTIS[norm]",
+      "pause": 2.0,
+      "clear": true
+    },
+    "THE GOLDEN SKELETON RISES FROM THE SARCOPHAGUS. A BLACK CAPE UNFURLS FROM ITS SHOULDERS LIKE THE WINGS OF A GREAT BAT.",
+    "[gold]GOLDEN BAT: 'Ten thousand years I have slept. Ten thousand years evil has waited.'",
+    "[gold]GOLDEN BAT: '[slow]Tremble, Nazō. Justice is awake.'",
+    {
+      "text": "MARIE SHRINKS AGAINST THE WALL, TOO FRIGHTENED TO SPEAK.",
+      "pause": 2.0,
+      "clear": true
+    },
+    {
+      "text": "TIP: TALK TO MARIE IN THE TOMB FOR GUIDANCE, REST, AND SAVING. TYPE 'HELP' FOR COMMANDS.",
+      "pause": 3.0,
+      "clear": true
+    }
+  ],
+  "deck_sighting": [
+    "THROUGH THE GLASS, THE DEEP SEA DARKENS...",
+    "A SHAPE THE SIZE OF A CATHEDRAL RISES FROM THE TRENCH: A GIANT ROBOT, ITS COLOSSAL FIVE-FINGERED HAND SCRAPING THE SEABED.",
+    "[slow]FIVE FINGER.[norm]",
+    "IT TURNS TOWARD THE ISLAND, AND BEGINS TO CLIMB TOWARD THE SHIPWRECKED BEACH.",
+    {
+      "text": "[gold]GOLDEN BAT: 'So. Nazō sends his toy. Let it come.'",
+      "pause": 2.0,
+      "clear": true
+    }
+  ],
+  "act1_end": [
+    "A LOUDSPEAKER CRACKLES ACROSS THE WATER.",
+    "DR. NAZŌ: 'Enjoy your little victory, Golden Bat! The lens will be mine, and you will never reach it!'",
+    {
+      "text": "THE ISLAND SHUDDERS. FAR BELOW, AT THE OBSERVATION DECK, THE GLASS FLOOR SPLINTERS... AND THROUGH THE CRACKS GLOWS THE LIGHT OF A DROWNED CITY.",
+      "pause": 2.5,
+      "clear": true
+    },
+    {
+      "text": "[gold]GOLDEN BAT: 'Beneath the ruins... So that is where you hide your secrets, Nazō. [laugh]HA-HA-HA-HA-HAAA...!'",
+      "pause": 2.5,
+      "clear": true
+    },
+    {
+      "text": "[gold][slow]END OF ACT I[norm]",
+      "pause": 1.5,
+      "clear": false
+    },
+    {
+      "text": "TO BE CONTINUED IN ACT II: THE SUNKEN CITY...",
+      "pause": 3.0,
+      "clear": true
+    }
+  ],
+  "act_continue": "ACT II: THE SUNKEN CITY IS STILL BEING WRITTEN. YOUR PROGRESS IS SAVED.",
+  "revive": [
+    "DARKNESS...",
+    "THEN, A SINGLE DROP OF WATER.",
+    {
+      "text": "MARIE: 'Please... please get up!'",
+      "pause": 1.5,
+      "clear": false
+    },
+    {
+      "text": "THE GOLDEN SKELETON RISES ONCE MORE IN THE ANCIENT TOMB.",
+      "pause": 2.0,
+      "clear": true
+    }
+  ],
+  "game_over": [
+    "MARIE TIPS THE CANTEEN. NOTHING FALLS. THE WATER IS GONE.",
+    {
+      "text": "THE GOLDEN SKELETON CRUMBLES TO DUST, AND NAZŌ'S LAUGHTER ECHOES ACROSS THE RUINS...",
+      "pause": 2.5,
+      "clear": false
+    }
+  ],
   "endings": [
     {
       "id": "true",

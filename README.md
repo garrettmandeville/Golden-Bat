@@ -41,11 +41,18 @@ The executable appears in `dist/`. The build bundles everything in `assets/`, so
 Type these actions when prompted to interact with the world:
 - `go [direction]` - Move to an adjacent room (e.g., `go north`, `go east`).
 - `get [item]` - Pick up a relic or item in the room (e.g., `get Red Cape`).
+- `use [item]` - Use an item, or a relic on something in the room (e.g., `use coral salve`).
+- `talk [name]` - Talk to someone nearby (e.g., `talk marie`).
 - `search` - Inspect your current surroundings for hidden items or secrets.
 - `path` - View all available exits from your current location.
 - `room` - Re-read the narrative description of your current location.
+- `status` - Check your health, relics, abilities, and quests.
 - `laugh` - Unleash the signature Golden Bat laugh!
+- `help` - List all commands.
 - `quit` - Abandon the mission and exit the game.
+
+### ⚔️ Combat
+Enemies announce their next move before you act. Each turn, choose to **Attack** (builds Energy), use a relic **Ability** (costs Energy), use an **Item**, **Laugh** (may freeze living foes with terror), or **Flee**. If Golden Bat falls, Marie revives him in the tomb with a drop of water — but her canteen won't last forever. Talk to Marie to rest and save.
 
 ## 🗂️ Project Structure
 ```

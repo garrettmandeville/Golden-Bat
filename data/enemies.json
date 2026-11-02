@@ -1,0 +1,96 @@
+{
+  "nazo_trooper": {
+    "name": "NAZŌ TROOPER",
+    "hp": 20,
+    "kind": "human",
+    "intro": "A trooper in a black hood and goggles blocks the tunnel, rifle shaking in his hands. 'The skeleton... it's MOVING!'",
+    "bat_line": "Run, little man. Or stand, and be judged.",
+    "moves": [
+      {"name": "Rifle Shot", "damage": [4, 7], "telegraph": "The trooper levels his rifle..."},
+      {"name": "Bayonet Lunge", "damage": [5, 8], "telegraph": "The trooper fixes his bayonet and crouches..."}
+    ],
+    "defeat": "The trooper drops his rifle and flees screaming into the dark.",
+    "loot": ["Coral Salve"]
+  },
+  "reef_serpent": {
+    "name": "REEF SERPENT",
+    "hp": 28,
+    "kind": "beast",
+    "intro": "The surf boils. A serpent of barnacled scales rises from the shallows and coils around the wreck, hissing.",
+    "bat_line": "Back to the deep, beast.",
+    "moves": [
+      {"name": "Tail Lash", "damage": [5, 8], "telegraph": "The serpent draws back its tail..."},
+      {"name": "Brine Spit", "damage": [3, 6], "telegraph": "The serpent's throat swells..."},
+      {"name": "Crushing Coil", "damage": [10, 13], "heavy": true, "telegraph": "The serpent wraps its coils wide for a crushing squeeze!"}
+    ],
+    "defeat": "The serpent sinks beneath the waves, leaving the wreck unguarded."
+  },
+  "lantern_wraith": {
+    "name": "LANTERN WRAITH",
+    "hp": 20,
+    "kind": "spirit",
+    "intro": "A pale light drifts between the houses: a lantern carried by no one. A face forms inside the flame, and it screams.",
+    "bat_line": "Your sorrow is old, spirit. Let me end it.",
+    "moves": [
+      {"name": "Chill Touch", "damage": [4, 6], "telegraph": "The wraith reaches out with frozen fingers..."},
+      {"name": "Wail", "damage": [3, 5], "telegraph": "The wraith opens its mouth impossibly wide..."}
+    ],
+    "defeat": "The wraith sighs, and its light goes out. For a moment, the street is warm.",
+    "loot": ["Glowmoss"]
+  },
+  "weeping_acolyte": {
+    "name": "WEEPING ACOLYTE",
+    "hp": 24,
+    "kind": "spirit",
+    "intro": "Beneath the vaulted ceiling, a robed figure kneels, weeping. It turns toward you. It has no face.",
+    "bat_line": "Weep no more. Your city's judge has returned.",
+    "moves": [
+      {"name": "Sorrow", "damage": [5, 7], "telegraph": "The acolyte bows its faceless head..."},
+      {"name": "Grasping Robes", "damage": [4, 8], "telegraph": "The acolyte spreads its robes like black wings..."}
+    ],
+    "defeat": "The acolyte bows low, and fades into the candle smoke."
+  },
+  "mole_drone": {
+    "name": "MOLE DRONE",
+    "hp": 22,
+    "kind": "machine",
+    "weak_to": ["push"],
+    "intro": "A drilling machine the size of a car grinds out of the cellar wall, its drill-nose shrieking. Dr. Nazō's insignia is painted on its hull.",
+    "bat_line": "Nazō's machines dig in the wrong grave.",
+    "moves": [
+      {"name": "Drill Charge", "damage": [6, 9], "telegraph": "The drone revs its drill..."},
+      {"name": "Rock Spray", "damage": [3, 5], "telegraph": "The drone angles its exhaust toward the rubble..."}
+    ],
+    "defeat": "The drone sputters, sparks, and grinds to a halt.",
+    "loot": ["Coral Salve"]
+  },
+  "sentry_eye": {
+    "name": "SENTRY EYE",
+    "hp": 26,
+    "kind": "machine",
+    "weak_to": ["push"],
+    "intro": "A floating sphere with a single red lens unfolds from the ceiling. 'INTRUDER. INTRUDER. INTRUDER.'",
+    "bat_line": "Intruder? I was here ten thousand years before you were built.",
+    "moves": [
+      {"name": "Laser", "damage": [5, 8], "telegraph": "The lens narrows to a red pinpoint..."},
+      {"name": "Laser", "damage": [5, 8], "telegraph": "The lens narrows to a red pinpoint..."},
+      {"name": "Overcharge Beam", "damage": [11, 14], "heavy": true, "telegraph": "The lens begins to glow white-hot!"}
+    ],
+    "defeat": "The sentry's lens cracks, and it drops to the floor like a stone.",
+    "loot": ["Glowmoss"]
+  },
+  "five_finger": {
+    "name": "FIVE FINGER",
+    "hp": 70,
+    "kind": "machine",
+    "boss": true,
+    "intro": "The sea splits open. Five Finger wades out of the surf: a giant robot taller than the cliffs, dragging a colossal five-fingered hand through the sand. A loudspeaker crackles. 'DR. NAZŌ SENDS HIS REGARDS!'",
+    "bat_line": "Nazō! You send iron to fight the god of justice? HA-HA-HA-HA!",
+    "moves": [
+      {"name": "Finger Cannons", "damage": [5, 8], "telegraph": "Five Finger swivels its five finger-cannons toward you..."},
+      {"name": "Stomp", "damage": [4, 7], "telegraph": "Five Finger lifts a massive leg..."},
+      {"name": "Crushing Palm", "damage": [16, 20], "heavy": true, "telegraph": "Five Finger raises its colossal palm high overhead!"}
+    ],
+    "defeat": "Five Finger staggers, its hand smoking. It turns and wades back into the sea, sinking beneath the waves. It is not destroyed. Not yet."
+  }
+}

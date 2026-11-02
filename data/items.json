@@ -1,11 +1,27 @@
 {
   "Silver Baton": {
     "description": "An indestructible silver scepter that can fire energy rays.",
-    "relic": true
+    "relic": true,
+    "ability": {
+      "name": "Silver Ray",
+      "effect": "damage",
+      "cost": 2,
+      "damage": [15, 19],
+      "hits_spirits": true,
+      "summary": "heavy damage; harms spirits",
+      "text": "Golden Bat levels the Silver Baton. A beam of blinding silver light tears through {enemy}!"
+    }
   },
   "Red Cape": {
     "description": "A high-collared cape that grants flight and invisibility.",
-    "relic": true
+    "relic": true,
+    "ability": {
+      "name": "Vanish",
+      "effect": "vanish",
+      "cost": 1,
+      "summary": "dodge the next attack; escape is certain",
+      "text": "The Red Cape sweeps around Golden Bat, and he is gone. Only his laughter remains."
+    }
   },
   "Swashbuckler Armor": {
     "description": "Ornate Atlantean plating that grants invulnerability.",
@@ -18,6 +34,14 @@
   "Kinesis Stone": {
     "description": "An ancient relic granting the user powers of terrakinesis and aerokinesis.",
     "relic": true,
+    "ability": {
+      "name": "Gale Push",
+      "effect": "push",
+      "cost": 1,
+      "damage": [5, 7],
+      "summary": "staggers foes; interrupts heavy attacks",
+      "text": "Golden Bat thrusts out a skeletal hand. A howling gale slams into {enemy}!"
+    },
     "on_pickup": {
       "set_flag": "secret_path_open",
       "text": "(!) THE KINESIS STONE VIBRATES... (!)"
@@ -33,5 +57,27 @@
   },
   "Botan Rice Candy": {
     "description": "A classic Japanese treat with an edible wrapper. It smells sweet, like fortune and nostalgia."
+  },
+  "Coral Salve": {
+    "description": "A paste of crushed red coral from Professor Mire's medical kit. Restores 20 HP.",
+    "consumable": true,
+    "heal_hp": 20
+  },
+  "Glowmoss": {
+    "description": "Bioluminescent moss that hums faintly. Golden Bat's bones drink in its light. Restores 3 Energy.",
+    "consumable": true,
+    "restore_energy": 3
+  },
+  "Ship Radio": {
+    "description": "A battered shortwave radio from Professor Mire's ship. Its dials are cracked, but Marie might coax it back to life."
+  },
+  "Journal Page I": {
+    "description": "Professor Mire's handwriting: '...the Atlanteans did not worship Golden Bat. They feared him. \"He is justice without mercy,\" reads the frieze, \"and the wicked hear his laughter in their sleep.\"'"
+  },
+  "Journal Page II": {
+    "description": "Professor Mire's handwriting: '...seven relics were forged to arm the Golden Judge. Three lie in the ruins above. The rest sank with the city below.'"
+  },
+  "Journal Page III": {
+    "description": "Professor Mire's handwriting: '...Nazō's men are searching for the lens in the wrong place. It is not in the ruins. It is BENEATH them. Marie must never come here.'"
   }
 }

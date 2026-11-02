@@ -2,73 +2,142 @@
   "start": "Ancient Tomb",
   "rooms": {
     "Ancient Tomb": {
-      "description": "A silent chamber of white stone. In the center lies the golden sarcophagus where Golden Bat slept for 10,000 years.\n[marie3]Marie sits in the corner of the tomb, weeping...",
+      "description": "A silent chamber of white stone. In the center lies the golden sarcophagus where Golden Bat slept for 10,000 years, its lid cracked in two upon the floor.\n[marie3]Marie sits beside it, her father's waterlogged notes spread across her lap...",
       "music": ["tomb", 0.8],
-      "exits": {"East": "Secret Tunnel"},
-      "hidden_exits": {
-        "North": {"to": "Echoing Gallery", "flag": "secret_path_open"}
+      "exits": {
+        "East": "Secret Tunnel",
+        "North": {"to": "Echoing Gallery", "hidden": true, "requires": {"flags": ["secret_path_open"]}}
       },
-      "item": "Silver Baton",
+      "items": ["Silver Baton"],
+      "npcs": ["marie"],
       "secrets": [
-        {"flag": "secret_path_open", "text": "You walk to the back of the tomb and see a small crack in the wall, leading north to some secret room..."}
+        {"requires": {"flags": ["secret_path_open"]}, "text": "You walk to the back of the tomb and see a small crack in the wall, leading north to some secret room..."}
       ]
     },
     "Echoing Gallery": {
       "description": "\nThe room is filled with ancient wooden frames.\nInstead of statues, you see a series of painted boards depicting a golden figure saving children from monsters.\nA faint smell of candy fills the air — a memory of the sweets sold to children before the show began.\nA plaque reads: 'Before the screen, there was the paper. Before the comic, there was the street...'",
       "music": ["gallery", 0.6],
       "exits": {"South": "Ancient Tomb"},
-      "item": "Botan Rice Candy"
+      "items": ["Botan Rice Candy"]
     },
     "Secret Tunnel": {
-      "description": "A narrow, damp passageway lit by faint bioluminescent moss. It connects the tomb to the surface ruins...",
+      "description": "A narrow, damp passageway lit by faint bioluminescent moss. Fresh bootprints in the mud lead toward the tomb...",
       "music": ["tunnel", 0.4],
-      "exits": {"West": "Ancient Tomb", "North": "Shipwrecked Beach"}
+      "exits": {"West": "Ancient Tomb", "North": "Shipwrecked Beach"},
+      "items": ["Glowmoss"],
+      "encounters": [
+        {"enemy": "nazo_trooper", "flag": "tunnel_trooper_defeated"}
+      ]
     },
     "Shipwrecked Beach": {
-      "description": "White sands littered with the wreckage of Professor Mire's ship. The Pacific waves crash against jagged rocks...",
+      "description": "White sands littered with the wreckage of Professor Mire's ship. The Pacific waves crash against jagged rocks, and gulls pick at what the sea has left behind...",
+      "extra": [
+        {"requires": {"flags": ["five_finger_defeated"]}, "text": "Giant trenches scar the sand where Five Finger dragged itself back into the sea."}
+      ],
       "music": ["beach", 0.4],
-      "exits": {"East": "Abandoned Church", "South": "Secret Tunnel", "North": "Ocean-Facing Cliffs"}
+      "exits": {"East": "Abandoned Church", "South": "Secret Tunnel", "North": "Ocean-Facing Cliffs"},
+      "items": ["Ship Radio", "Coral Salve"],
+      "encounters": [
+        {"enemy": "reef_serpent", "flag": "beach_serpent_defeated"},
+        {
+          "enemy": "five_finger",
+          "flag": "five_finger_defeated",
+          "requires": {"flags": ["five_finger_awake"]},
+          "victory": {"beats": "act1_end", "set_flags": ["act1_complete"], "end_act": "I"}
+        }
+      ]
     },
     "Ocean-Facing Cliffs": {
       "description": "High, windswept precipices overlooking the vast ocean. From here, you can see the faint glimmer of the lost city below...",
+      "extra": [
+        {"requires": {"not_flags": ["cape_lifted"]}, "text": "Something red flutters on a ledge far below."}
+      ],
       "music": ["cliffs", 0.4],
       "exits": {"East": "Abandoned Residential District", "South": "Shipwrecked Beach"},
-      "item": "Red Cape"
+      "secrets": [
+        {"requires": {"not_flags": ["cape_lifted"]}, "text": "Far below, on a ledge battered by spray, a crimson cape is snagged on the rocks. No hand could reach it... but perhaps the wind could."}
+      ],
+      "interactions": [
+        {
+          "item": "Kinesis Stone",
+          "flag": "cape_lifted",
+          "text": "You raise the Kinesis Stone. The wind obeys. A howling updraft tears the crimson cape from the rocks and lays it at your feet.",
+          "add_items": ["Red Cape"]
+        }
+      ]
     },
     "Abandoned Residential District": {
-      "description": "Crumbling stone houses that once housed the people of Atlantis. Vines choke the ancient architecture...",
+      "description": "Crumbling stone houses that once housed the people of Atlantis. Vines choke the ancient architecture, and lanterns still hang in the doorways, unlit for ten thousand years...",
       "music": ["town", 0.8],
-      "exits": {"West": "Ocean-Facing Cliffs", "East": "Rusted Armory"}
+      "exits": {"West": "Ocean-Facing Cliffs", "East": "Rusted Armory"},
+      "items": ["Journal Page I"],
+      "encounters": [
+        {"enemy": "lantern_wraith", "flag": "district_wraith_defeated"}
+      ]
     },
     "Rusted Armory": {
-      "description": "A chamber filled with decayed bronze weapons and empty racks that once held the military might of a lost empire...",
+      "description": "A chamber filled with decayed bronze weapons and empty racks that once held the military might of a lost empire. A towering bronze sentinel stands at the far wall, spear in hand...",
       "music": ["armory", 0.2],
       "exits": {"West": "Abandoned Residential District", "South": "Ancient Atlantean Lab"},
-      "item": "Swashbuckler Armor"
+      "items": ["Coral Salve"],
+      "npcs": ["sentinel"]
     },
     "Abandoned Church": {
-      "description": "A towering structure with vaulted ceilings. Ancient symbols are carved into the stone...",
+      "description": "A towering structure with vaulted ceilings. Ancient symbols are carved into the stone, and a cold draft rises from the stairs leading down...",
       "music": ["church", 0.4],
       "exits": {"South": "Church Cellar", "East": "Ancient Atlantean Lab", "West": "Shipwrecked Beach"},
-      "item": "Hydroflask"
+      "items": ["Journal Page II"],
+      "encounters": [
+        {"enemy": "weeping_acolyte", "flag": "church_spirit_defeated"}
+      ]
     },
     "Church Cellar": {
-      "description": "A dark, cramped basement filled with crates of old scrolls and strange, humming minerals...",
+      "description": "A dark, cramped basement filled with crates of old scrolls and strange, humming minerals. Fresh drill holes pock the walls. Something has been digging...",
       "music": ["cellar", 0.4],
       "exits": {"North": "Abandoned Church"},
-      "item": "Kinesis Stone"
+      "items": ["Kinesis Stone", "Glowmoss"],
+      "encounters": [
+        {"enemy": "mole_drone", "flag": "cellar_drone_defeated"}
+      ]
     },
     "Ancient Atlantean Lab": {
-      "description": "A massive hall filled with advanced machinery and glowing crystalline computers from a forgotten science...",
+      "description": "A massive hall filled with advanced machinery and glowing crystalline computers from a forgotten science. Nazō's men have bolted crude cables into the ancient consoles...",
       "music": ["lab", 1.0],
-      "exits": {"North": "Rusted Armory", "South": "Submerged Observation Deck", "West": "Abandoned Church", "East": "Hall of Ancient Tech"},
-      "item": "Spectral Reins"
+      "exits": {
+        "North": "Rusted Armory",
+        "West": "Abandoned Church",
+        "South": {
+          "to": "Submerged Observation Deck",
+          "requires": {"items": ["Red Cape"]},
+          "blocked_text": "The floor to the south has collapsed into a black chasm. The far side is too distant to leap... but something might fly across.",
+          "pass_text": "The Red Cape snaps open like the wings of a great bat, and you glide across the chasm."
+        },
+        "East": {
+          "to": "Hall of Ancient Tech",
+          "requires": {"flags": ["act3_open"]},
+          "blocked_text": "A wall of crackling spectral energy seals the eastern hall. Somewhere behind it, a man is laughing."
+        }
+      },
+      "items": ["Journal Page III"],
+      "encounters": [
+        {"enemy": "sentry_eye", "flag": "lab_sentry_defeated"}
+      ]
     },
     "Submerged Observation Deck": {
       "description": "A glass-domed room beneath the waves. You can see the aquatic life of Atlantis swimming past the reinforced glass...",
+      "extra": [
+        {"requires": {"not_flags": ["five_finger_awake"]}, "text": "Something vast moves in the deep, just beyond sight. You are not yet ready to face it."}
+      ],
       "music": ["observatory", 0.6],
       "exits": {"North": "Ancient Atlantean Lab"},
-      "item": "Icarus Data"
+      "events": [
+        {
+          "id": "deck_sighting",
+          "requires": {"items": ["Silver Baton", "Kinesis Stone", "Red Cape"]},
+          "beats": "deck_sighting",
+          "set_flags": ["five_finger_awake"]
+        }
+      ]
     },
     "Hall of Ancient Tech": {
       "description": "",
