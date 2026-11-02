@@ -1,0 +1,73 @@
+# Builds Golden Bat for Windows, macOS, and Linux and attaches the executables to a release.
+#
+# Runs automatically when a release is published. To rebuild an existing release, run it
+# from the Actions tab ("Run workflow") and enter the release tag, e.g. v2.0.0.
+
+name: Build release executables
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to build and upload to (e.g. v2.0.0)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # An older Ubuntu keeps the Linux build compatible with more distros
+          - os: ubuntu-22.04
+            asset: GoldenBat-linux
+          - os: windows-latest
+            asset: GoldenBat-windows.exe
+          # Apple Silicon (M1 and newer)
+          - os: macos-latest
+            asset: GoldenBat-macos
+
+    runs-on: ${{ matrix.os }}
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pygame-ce pyinstaller
+
+      - name: Build
+        run: python -m PyInstaller --noconfirm main.spec
+
+      - name: Rename executable
+        shell: bash
+        run: mv dist/GoldenBat* "dist/${{ matrix.asset }}"
+
+      # Starts a new game, skips the prologue, and quits, checking the build actually runs
+      - name: Smoke test
+        shell: bash
+        env:
+          SDL_AUDIODRIVER: dummy
+          TERM: xterm
+          PYTHONIOENCODING: utf-8
+        run: |
+          printf '\nn\nhelp\n\nquit\n' | "./dist/${{ matrix.asset }}" > smoke.txt 2>&1 || true
+          grep -q "fate remains uncertain" smoke.txt || { cat smoke.txt; exit 1; }
+
+      - name: Upload to release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$TAG" "dist/${{ matrix.asset }}" --clobber
