@@ -1,7 +1,10 @@
 {
   "marie": {
     "name": "MARIE MIRE",
-    "aliases": ["marie", "marie mire"],
+    "aliases": [
+      "marie",
+      "marie mire"
+    ],
     "first_meeting": [
       "MARIE: 'You... you're real. The book said you would come.'",
       "[gold]GOLDEN BAT: 'Child. You called, and I have answered. Who has brought evil to this place?'",
@@ -10,33 +13,149 @@
       "MARIE: 'His soldiers are everywhere in the ruins. I'll stay here and study Father's notes. And if you fall... I still have a little water left.'"
     ],
     "hints": [
-      {"requires": {"not_items": ["Silver Baton"]}, "text": "There's a silver scepter inside the sarcophagus. Father's notes call it the Silver Baton. Take it. You'll need it."},
-      {"requires": {"not_flags": ["tunnel_trooper_defeated"]}, "text": "I heard boots in the tunnel to the east. Nazō's men are close."},
-      {"requires": {"not_flags": ["church_spirit_defeated"]}, "text": "Father wrote that the ghosts of Atlantis can't be touched by fist or wind. Only light can reach them. The silver kind."},
-      {"requires": {"not_items": ["Kinesis Stone"]}, "text": "Father wrote about a humming stone beneath the church, a stone that moves earth and air. The church is east of the beach."},
-      {"requires": {"not_items": ["Red Cape"]}, "text": "From the cliffs north of the beach, Father once saw something red on the rocks below. 'A cape,' he wrote, 'beyond the reach of any hand.' Maybe the stone could help?"},
-      {"requires": {"not_flags": ["five_finger_awake"]}, "text": "Father's notes describe a glass room beneath the sea, south of the laboratory. If anything can show us what Nazō is planning, it's there."},
-      {"requires": {"not_flags": ["five_finger_defeated"]}, "text": "Five Finger is heading for the beach! Please... stop it, Golden Bat."}
+      {
+        "requires": {
+          "not_items": [
+            "Silver Baton"
+          ]
+        },
+        "text": "There's a silver scepter inside the sarcophagus. Father's notes call it the Silver Baton. Take it. You'll need it."
+      },
+      {
+        "requires": {
+          "not_flags": [
+            "tunnel_trooper_defeated"
+          ]
+        },
+        "text": "I heard boots in the tunnel to the east. Nazō's men are close."
+      },
+      {
+        "requires": {
+          "not_flags": [
+            "church_spirit_defeated"
+          ]
+        },
+        "text": "Father wrote that the ghosts of Atlantis can't be touched by fist or wind. Only light can reach them. The silver kind."
+      },
+      {
+        "requires": {
+          "not_items": [
+            "Kinesis Stone"
+          ]
+        },
+        "text": "Father wrote about a humming stone beneath the church, a stone that moves earth and air. The church is east of the beach."
+      },
+      {
+        "requires": {
+          "not_items": [
+            "Red Cape"
+          ]
+        },
+        "text": "From the cliffs north of the beach, Father once saw something red on the rocks below. 'A cape,' he wrote, 'beyond the reach of any hand.' Maybe the stone could help?"
+      },
+      {
+        "requires": {
+          "not_flags": [
+            "five_finger_awake"
+          ]
+        },
+        "text": "Father's notes describe a glass room beneath the sea, south of the laboratory. If anything can show us what Nazō is planning, it's there."
+      },
+      {
+        "requires": {
+          "not_flags": [
+            "five_finger_defeated"
+          ]
+        },
+        "text": "Five Finger is heading for the beach! Please... stop it, Golden Bat."
+      },
+      {
+        "requires": {
+          "not_flags": [
+            "archive_unsealed"
+          ]
+        },
+        "text": "The archive north of the avenue is sealed with crystal. Father's notes say the Silver Baton's light can shatter Atlantean crystal."
+      },
+      {
+        "requires": {
+          "not_flags": [
+            "market_cleared"
+          ]
+        },
+        "text": "Rubble blocks the market to the east. Your stone commanded the wind once. Perhaps it can command stone, too?"
+      },
+      {
+        "requires": {
+          "not_items": [
+            "Swashbuckler Armor"
+          ]
+        },
+        "text": "Yamatone's sonar found a bronze warrior in the hall west of the avenue. It's guarding something. Armor, he thinks."
+      },
+      {
+        "requires": {
+          "not_items": [
+            "Hydroflask"
+          ]
+        },
+        "text": "The Tide Temple is past the market. Father wrote that its inner sanctum hides 'the water that wakes,' behind steam no living thing can cross. Only armor could bear it."
+      },
+      {
+        "requires": {
+          "not_items": [
+            "Spectral Reins"
+          ]
+        },
+        "text": "Beyond the Hall of Champions there's an abyss, and on the other side, Gorgo's men are stealing the old war-machines. You crossed a chasm once before..."
+      },
+      {
+        "requires": {
+          "not_flags": [
+            "gorgo_defeated"
+          ]
+        },
+        "text": "Gorgo's flagship is in the harbor, east of the stables. Please be careful. Yamatone says the Leviathan is a machine, not a beast. Maybe the reins can turn it?"
+      }
     ],
     "default_hint": "I'll keep reading Father's notes. There's so much I don't understand yet.",
-    "rest": "You rest beside the sarcophagus while Marie keeps watch, humming a French lullaby her father used to sing.",
+    "rest": [
+      {
+        "requires": {
+          "flags": [
+            "act2_started"
+          ]
+        },
+        "text": "You rest against the warm hood of the Super Car while Marie and the Professor argue softly over her father's notes."
+      },
+      {
+        "text": "You rest beside the sarcophagus while Marie keeps watch, humming a French lullaby her father used to sing."
+      }
+    ],
     "quests": [
       {
         "id": "radio",
         "name": "The Ship Radio",
-        "items": ["Ship Radio"],
+        "items": [
+          "Ship Radio"
+        ],
         "flag": "radio_fixed",
         "beats": [
           "Marie turns the radio over in her hands, then pries off the back with a hairpin.",
           "Static... static... then a voice, faint and frantic:",
           "PROF. YAMATONE: 'This is Professor Yamatone of the Pearl Research Institute! Marie, is that you?! Thank heavens!'",
           "MARIE: 'Professor! I'm alive, and... I'm not alone.'"
-        ]
+        ],
+        "progress": "found"
       },
       {
         "id": "journal",
         "name": "Father's Journal",
-        "items": ["Journal Page I", "Journal Page II", "Journal Page III"],
+        "items": [
+          "Journal Page I",
+          "Journal Page II",
+          "Journal Page III"
+        ],
         "flag": "journal_complete",
         "beats": [
           "Marie presses the three pages together, smoothing them flat.",
@@ -44,38 +163,212 @@
           "She unscrews her last canteen and holds it out to you.",
           "MARIE: 'Take one more drop. Just in case.'"
         ],
-        "reward": {"drops": 1}
+        "reward": {
+          "drops": 1
+        },
+        "progress": "found"
+      },
+      {
+        "id": "spirits",
+        "name": "The Sleeping Spirits",
+        "visible": {
+          "flags": [
+            "act2_started"
+          ]
+        },
+        "flags_needed": [
+          "spirit_archivist_freed",
+          "spirit_merchant_freed",
+          "spirit_champion_freed"
+        ],
+        "progress": "spirits woken",
+        "flag": "spirits_freed",
+        "beats": [
+          "MARIE: 'You woke them? All three?'",
+          "As she speaks, the drowned lanterns of the city flicker... and one by one, every lamp on every street blazes into light.",
+          "MARIE: 'Listen... can you hear it? They're singing.'",
+          "PROF. YAMATONE: 'Remarkable. The whole city's power grid just came back online. They're thanking you, Golden Bat.'",
+          "[gold]GOLDEN BAT: 'Atlantis remembers its Judge. And I will remember Atlantis.'"
+        ],
+        "reward": {
+          "drops": 1
+        }
+      }
+    ],
+    "side_hints": [
+      {
+        "requires": {
+          "flags": [
+            "act2_started"
+          ],
+          "not_flags": [
+            "spirits_freed"
+          ]
+        },
+        "text": "And Golden Bat... the spirits sleeping in this city. Father believed the water of the Hydroflask could wake them. The archive, the market, the hall of champions... they've waited so long."
       }
     ]
   },
-  "yamatone": {
-    "name": "PROF. YAMATONE (RADIO)",
-    "lines": [
-      {"requires": {"not_flags": ["five_finger_defeated"]}, "text": "Golden Bat! The legends are true! Listen: Nazō needs the special lens to finish his Spectral Cannon, and our institute needs it to stop Icarus. And beware his robot, Five Finger. I've studied its design. When it raises that palm, it commits all its power to one blow. Knock it off balance, or don't be there when it lands!"}
-    ],
-    "default": "Icarus is getting closer every hour. I'm working on a way to reach you both. Hold on!"
-  },
   "sentinel": {
     "name": "BRONZE SENTINEL",
-    "aliases": ["sentinel", "bronze sentinel", "guardian", "statue"],
+    "aliases": [
+      "sentinel",
+      "bronze sentinel",
+      "guardian",
+      "statue"
+    ],
     "talks": [
       {
-        "requires": {"items": ["Silver Baton"], "not_flags": ["sentinel_blessing"]},
+        "requires": {
+          "items": [
+            "Silver Baton"
+          ],
+          "not_flags": [
+            "sentinel_blessing"
+          ]
+        },
         "beats": [
           "The bronze giant's eyes flicker with green fire. Its spear lowers.",
           "SENTINEL: 'THE BATON... THE GOLDEN JUDGE HAS RETURNED.'",
           "SENTINEL: 'TEN THOUSAND YEARS I HAVE GUARDED THIS HALL. TAKE THIS, JUDGE: THE WATER OF OUR LAST SPRING.'",
           "[gold]GOLDEN BAT: 'Rest now, old soldier. Your watch is ended.'"
         ],
-        "set_flags": ["sentinel_blessing"],
-        "reward": {"drops": 1}
+        "set_flags": [
+          "sentinel_blessing"
+        ],
+        "reward": {
+          "drops": 1
+        }
       },
       {
-        "requires": {"flags": ["sentinel_blessing"]},
+        "requires": {
+          "flags": [
+            "sentinel_blessing"
+          ]
+        },
         "text": "The sentinel stands motionless, its eyes dark. At peace."
       },
       {
         "text": "The sentinel's spear swings down to bar your way. 'ONLY THE JUDGE MAY SPEAK HERE.' It falls silent."
+      }
+    ]
+  },
+  "radio": {
+    "name": "PROF. YAMATONE (RADIO)",
+    "lines": [
+      {
+        "requires": {
+          "not_flags": [
+            "five_finger_defeated"
+          ]
+        },
+        "text": "Golden Bat! The legends are true! Listen: Nazō needs the special lens to finish his Spectral Cannon, and our institute needs it to stop Icarus. And beware his robot, Five Finger. I've studied its design. When it raises that palm, it commits all its power to one blow. Knock it off balance, or don't be there when it lands!"
+      }
+    ],
+    "default": "Icarus is getting closer every hour. I'm working on a way to reach you both. Hold on!",
+    "requires": {
+      "flags": [
+        "radio_fixed"
+      ],
+      "not_flags": [
+        "act2_started"
+      ]
+    }
+  },
+  "yamatone": {
+    "name": "PROF. YAMATONE",
+    "aliases": [
+      "yamatone",
+      "professor",
+      "prof yamatone",
+      "professor yamatone",
+      "prof. yamatone"
+    ],
+    "talks": [
+      {
+        "requires": {
+          "not_flags": [
+            "yamatone_supplies"
+          ]
+        },
+        "beats": [
+          "PROF. YAMATONE: 'Golden Bat! An honor! Here, take these from the Super Car's emergency kit. The Pearl Research Institute's finest.'",
+          "PROF. YAMATONE: 'Now, about that lens. The Atlanteans called it the Eye of Atlantis. If Nazō fits it to his Spectral Cannon, he can steer Icarus wherever he likes.'"
+        ],
+        "set_flags": [
+          "yamatone_supplies"
+        ],
+        "reward": {
+          "items": [
+            "Coral Salve",
+            "Glowmoss"
+          ]
+        }
+      },
+      {
+        "requires": {
+          "not_items": [
+            "Swashbuckler Armor"
+          ]
+        },
+        "text": "PROF. YAMATONE: 'My sonar picked up a bronze figure in the hall to the west. Atlantean craftsmanship. Whatever it guards, it guards well.'"
+      },
+      {
+        "requires": {
+          "not_items": [
+            "Spectral Reins"
+          ]
+        },
+        "text": "PROF. YAMATONE: 'Gorgo's flagship is in the harbor, past an abyss and a deep channel. Even my Super Car can't follow you there. But the Atlanteans tamed great machines once, with reins of light.'"
+      },
+      {
+        "requires": {
+          "not_flags": [
+            "gorgo_defeated"
+          ]
+        },
+        "text": "PROF. YAMATONE: 'That Leviathan is an Atlantean war-machine, not a living beast! Gorgo controls it through those cables. If you could seize it, even for a moment, when it rears up to crush you...'"
+      },
+      {
+        "text": "PROF. YAMATONE: 'The Super Car is ready whenever you are, Golden Bat.'"
+      }
+    ]
+  },
+  "archivist": {
+    "name": "THE ARCHIVIST",
+    "aliases": [
+      "archivist",
+      "spirit",
+      "old man",
+      "ghost"
+    ],
+    "talks": [
+      {
+        "requires": {
+          "not_flags": [
+            "spirit_archivist_freed"
+          ]
+        },
+        "text": "The old spirit drifts in his sleep, murmuring. He doesn't hear you."
+      },
+      {
+        "requires": {
+          "not_flags": [
+            "archivist_lore"
+          ]
+        },
+        "beats": [
+          "ARCHIVIST: 'You want to know about the Eye. Everyone always wants to know about the Eye.'",
+          "ARCHIVIST: 'We ground it from a falling star. Through it, a single beam of light could push a world off its path. We built it to protect the Earth.'",
+          "ARCHIVIST: 'The admiral's divers took it from the Tide Temple three days ago. By now it travels to the doctor's fortress above, in the old Hall of Ancient Tech.'",
+          "ARCHIVIST: 'Hurry, Judge. A tool made to save a world can just as easily end one.'"
+        ],
+        "set_flags": [
+          "archivist_lore"
+        ]
+      },
+      {
+        "text": "ARCHIVIST: 'Seven relics for the Judge, they used to say. Three for the ruins, three for the deep, and one for the sky. I suppose the sky is the doctor's business now.'"
       }
     ]
   }

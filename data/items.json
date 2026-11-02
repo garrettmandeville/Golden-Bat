@@ -25,11 +25,27 @@
   },
   "Swashbuckler Armor": {
     "description": "Ornate Atlantean plating that grants invulnerability.",
-    "relic": true
+    "relic": true,
+    "ability": {
+      "name": "Iron Guard",
+      "effect": "guard",
+      "passive": true,
+      "reduction": 0.3,
+      "summary": "always blocks 30% of incoming damage"
+    }
   },
   "Hydroflask": {
     "description": "A vessel holding the water needed to awaken the God of Justice.",
-    "relic": true
+    "relic": true,
+    "ability": {
+      "name": "Living Water",
+      "effect": "water",
+      "cost": 2,
+      "heal_hp": 18,
+      "damage": [14, 18],
+      "summary": "restores 18 HP; burns spirits",
+      "text": "Golden Bat tips the Hydroflask. Water older than the ocean pours over his bones."
+    }
   },
   "Kinesis Stone": {
     "description": "An ancient relic granting the user powers of terrakinesis and aerokinesis.",
@@ -49,7 +65,14 @@
   },
   "Spectral Reins": {
     "description": "Ethereal bindings used to control giant ancient machines.",
-    "relic": true
+    "relic": true,
+    "ability": {
+      "name": "Bind",
+      "effect": "bind",
+      "cost": 3,
+      "summary": "a beast or machine's next attack hits itself",
+      "text": "Golden Bat casts the Spectral Reins. Threads of pale light sing through the air."
+    }
   },
   "Icarus Data": {
     "description": "Critical data about the rogue planet's collision course.",

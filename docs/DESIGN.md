@@ -24,7 +24,7 @@ Pulp and eerie, like a late-60s Saturday serial:
 | Character | Role |
 |---|---|
 | **Golden Bat** | The player. Ancient god of justice awakened in the Ancient Tomb. |
-| **Marie Mire** | Base-camp ally in the Ancient Tomb. Translates her late father's notes into hints, gives side quests, revives Golden Bat with drops of water, and saves the game. |
+| **Marie Mire** | Base-camp ally: in the Ancient Tomb in Act I, then at Bell Landing beside the Super Car in Act II. Translates her late father's notes into hints, gives side quests, revives Golden Bat with drops of water, and saves the game. |
 | **Professor Yamatone** | Inventor from the Pearl Research Institute. Reaches Marie by radio in Act I, arrives by Super Car in Act II, and helps aim the cannon in Act III. Rewards side quests with gadgets. |
 | **Dr. Nazō** | Mad scientist who sent the rogue planet Icarus toward Earth. Final boss. |
 | **Five Finger** | Nazō's giant mechanical robot. Act I boss; Act III rematch. |
@@ -42,11 +42,22 @@ special lens.
 - **Cliffhanger:** the Observation Deck floor cracks open onto a drowned city.
 
 ### Act II — The Sunken City
-Roughly 8–10 new rooms below the sea: drowned avenues, a spirit archive, a tide temple.
+Yamatone's Super Car dives to the drowned city with Marie aboard and docks at Bell Landing,
+which becomes the new camp. Nine rooms below the sea: the Sunken Stair, Bell Landing, the
+Drowned Avenue, the Spirit Archive, the Coral Market, the Tide Temple and its Inner Sanctum,
+the Hall of Champions, the Abyssal Stables, and the Drowned Harbor.
 
-- **Relics:** Swashbuckler Armor, Hydroflask, Spectral Reins.
-- **Boss:** Admiral Gorgo and his sea beast.
-- **Side goal:** free the trapped spirits of Atlantis (counts toward the True ending).
+- **Act I relics open the way:** the Silver Baton shatters the archive's crystal seal, the
+  Kinesis Stone clears the market rubble, and the Red Cape crosses the abyss to the stables.
+- **Relics:** Swashbuckler Armor (Hall of Champions, lets you pass the temple's steam),
+  Hydroflask (Inner Sanctum), Spectral Reins (Abyssal Stables, lets you ride to the harbor).
+- **Boss:** Admiral Gorgo riding the Leviathan, an Atlantean war-machine he controls through
+  cables. The Spectral Reins can turn its crushing attack back on it.
+- **Side goal:** wake three sleeping spirits with the Hydroflask (the Archivist, the
+  Merchant, and the Champion's ghost), then tell Marie (counts toward the True ending).
+- **Story:** the empty lens cradle in the sanctum and the Archivist reveal that Gorgo's
+  divers already sent the Eye of Atlantis to Nazō's fortress. Act II ends with Icarus
+  visible in the sky.
 
 ### Act III — The Spectral Cannon
 The Hall of Ancient Tech becomes Nazō's fortress, about 6 rooms. Icarus grows larger in the
@@ -94,7 +105,7 @@ some have weaknesses or immunities (spirits can only be hurt by Silver Ray or Li
 - **Spirits of Atlantis:** ghosts of the lost people; only certain relics affect them.
 
 ### Defeat
-When HP reaches 0, Marie revives Golden Bat in the tomb with a drop of water, and he keeps his
+When HP reaches 0, Marie revives Golden Bat at her camp with a drop of water, and he keeps his
 items. She has a limited number of drops (more can be found). When they run out, the game is
 over and the player loads their last save.
 
@@ -137,7 +148,6 @@ Each phase is playable and committed on its own.
 
 1. ✅ **Engine and data files.** The classic game rebuilt on the new engine, playing the same as `classic`.
 2. ✅ **Act I.** HP, Energy, combat, relic abilities, Marie, saving, and the Act I content.
-   The build currently ends at the Act I cliffhanger; the remaining four relics and the
-   endings return in Acts II and III.
-3. **Act II.** The Sunken City.
+3. ✅ **Act II.** The Sunken City. Each act break restores HP and Energy and autosaves.
+   The build currently ends after Act II; the Icarus Data and the endings return in Act III.
 4. **Act III.** The fortress, the finale, the three endings, and README updates.

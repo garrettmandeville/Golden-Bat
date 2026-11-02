@@ -19,6 +19,8 @@ class GameState:
     rooms: dict
     items: dict
     current_room: str
+    # Rooms where Marie keeps camp, from data/rooms.json; the last one unlocked is used
+    camps: list = field(default_factory = list)
     inventory: list = field(default_factory = list)
     flags: set = field(default_factory = set)
     visited: set = field(default_factory = set)
@@ -33,7 +35,7 @@ class GameState:
     def new_game(cls, rooms_data, items):
         """Creates a fresh state from data/rooms.json and data/items.json."""
         return cls(rooms = copy.deepcopy(rooms_data["rooms"]), items = items,
-                   current_room = rooms_data["start"])
+                   current_room = rooms_data["start"], camps = rooms_data["camps"])
 
     @property
     def room(self):
@@ -71,6 +73,19 @@ class GameState:
         """Returns the text of each entry in room[key] whose requirements are met."""
         return [entry["text"] for entry in self.room.get(key, []) if self.meets(entry.get("requires"))]
 
+    def npcs(self):
+        """Ids of the characters currently in this room (entries may have requirements)."""
+        ids = []
+        for entry in self.room.get("npcs", []):
+            entry = {"id": entry} if isinstance(entry, str) else entry
+            if self.meets(entry.get("requires")):
+                ids.append(entry["id"])
+        return ids
+
+    def camp(self):
+        """The room where Marie currently keeps camp (and revives Golden Bat)."""
+        return [camp["room"] for camp in self.camps if self.meets(camp.get("requires"))][-1]
+
     def next_encounter(self):
         """Returns the first undefeated encounter in this room whose requirements are met."""
         for encounter in self.room.get("encounters", []):
@@ -85,6 +100,12 @@ class GameState:
     def has_all_relics(self):
         """True if every relic listed in data/items.json is in the inventory."""
         return all(relic in self.inventory for relic in self.relics())
+
+    def move_to(self, room_name):
+        """Places the player in a room as if they had just arrived."""
+        self.previous_room = None
+        self.current_room = room_name
+        self.just_entered = True
 
     def apply_reward(self, reward):
         """Applies a reward block: {"drops": n, "items": [...], "flags": [...]}."""

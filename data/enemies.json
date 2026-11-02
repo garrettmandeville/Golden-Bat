@@ -6,11 +6,27 @@
     "intro": "A trooper in a black hood and goggles blocks the tunnel, rifle shaking in his hands. 'The skeleton... it's MOVING!'",
     "bat_line": "Run, little man. Or stand, and be judged.",
     "moves": [
-      {"name": "Rifle Shot", "damage": [4, 7], "telegraph": "The trooper levels his rifle..."},
-      {"name": "Bayonet Lunge", "damage": [5, 8], "telegraph": "The trooper fixes his bayonet and crouches..."}
+      {
+        "name": "Rifle Shot",
+        "damage": [
+          4,
+          7
+        ],
+        "telegraph": "The trooper levels his rifle..."
+      },
+      {
+        "name": "Bayonet Lunge",
+        "damage": [
+          5,
+          8
+        ],
+        "telegraph": "The trooper fixes his bayonet and crouches..."
+      }
     ],
     "defeat": "The trooper drops his rifle and flees screaming into the dark.",
-    "loot": ["Coral Salve"]
+    "loot": [
+      "Coral Salve"
+    ]
   },
   "reef_serpent": {
     "name": "REEF SERPENT",
@@ -19,9 +35,31 @@
     "intro": "The surf boils. A serpent of barnacled scales rises from the shallows and coils around the wreck, hissing.",
     "bat_line": "Back to the deep, beast.",
     "moves": [
-      {"name": "Tail Lash", "damage": [5, 8], "telegraph": "The serpent draws back its tail..."},
-      {"name": "Brine Spit", "damage": [3, 6], "telegraph": "The serpent's throat swells..."},
-      {"name": "Crushing Coil", "damage": [10, 13], "heavy": true, "telegraph": "The serpent wraps its coils wide for a crushing squeeze!"}
+      {
+        "name": "Tail Lash",
+        "damage": [
+          5,
+          8
+        ],
+        "telegraph": "The serpent draws back its tail..."
+      },
+      {
+        "name": "Brine Spit",
+        "damage": [
+          3,
+          6
+        ],
+        "telegraph": "The serpent's throat swells..."
+      },
+      {
+        "name": "Crushing Coil",
+        "damage": [
+          10,
+          13
+        ],
+        "heavy": true,
+        "telegraph": "The serpent wraps its coils wide for a crushing squeeze!"
+      }
     ],
     "defeat": "The serpent sinks beneath the waves, leaving the wreck unguarded."
   },
@@ -32,11 +70,27 @@
     "intro": "A pale light drifts between the houses: a lantern carried by no one. A face forms inside the flame, and it screams.",
     "bat_line": "Your sorrow is old, spirit. Let me end it.",
     "moves": [
-      {"name": "Chill Touch", "damage": [4, 6], "telegraph": "The wraith reaches out with frozen fingers..."},
-      {"name": "Wail", "damage": [3, 5], "telegraph": "The wraith opens its mouth impossibly wide..."}
+      {
+        "name": "Chill Touch",
+        "damage": [
+          4,
+          6
+        ],
+        "telegraph": "The wraith reaches out with frozen fingers..."
+      },
+      {
+        "name": "Wail",
+        "damage": [
+          3,
+          5
+        ],
+        "telegraph": "The wraith opens its mouth impossibly wide..."
+      }
     ],
     "defeat": "The wraith sighs, and its light goes out. For a moment, the street is warm.",
-    "loot": ["Glowmoss"]
+    "loot": [
+      "Glowmoss"
+    ]
   },
   "weeping_acolyte": {
     "name": "WEEPING ACOLYTE",
@@ -45,8 +99,22 @@
     "intro": "Beneath the vaulted ceiling, a robed figure kneels, weeping. It turns toward you. It has no face.",
     "bat_line": "Weep no more. Your city's judge has returned.",
     "moves": [
-      {"name": "Sorrow", "damage": [5, 7], "telegraph": "The acolyte bows its faceless head..."},
-      {"name": "Grasping Robes", "damage": [4, 8], "telegraph": "The acolyte spreads its robes like black wings..."}
+      {
+        "name": "Sorrow",
+        "damage": [
+          5,
+          7
+        ],
+        "telegraph": "The acolyte bows its faceless head..."
+      },
+      {
+        "name": "Grasping Robes",
+        "damage": [
+          4,
+          8
+        ],
+        "telegraph": "The acolyte spreads its robes like black wings..."
+      }
     ],
     "defeat": "The acolyte bows low, and fades into the candle smoke."
   },
@@ -54,30 +122,74 @@
     "name": "MOLE DRONE",
     "hp": 22,
     "kind": "machine",
-    "weak_to": ["push"],
+    "weak_to": [
+      "push"
+    ],
     "intro": "A drilling machine the size of a car grinds out of the cellar wall, its drill-nose shrieking. Dr. Nazō's insignia is painted on its hull.",
     "bat_line": "Nazō's machines dig in the wrong grave.",
     "moves": [
-      {"name": "Drill Charge", "damage": [6, 9], "telegraph": "The drone revs its drill..."},
-      {"name": "Rock Spray", "damage": [3, 5], "telegraph": "The drone angles its exhaust toward the rubble..."}
+      {
+        "name": "Drill Charge",
+        "damage": [
+          6,
+          9
+        ],
+        "telegraph": "The drone revs its drill..."
+      },
+      {
+        "name": "Rock Spray",
+        "damage": [
+          3,
+          5
+        ],
+        "telegraph": "The drone angles its exhaust toward the rubble..."
+      }
     ],
     "defeat": "The drone sputters, sparks, and grinds to a halt.",
-    "loot": ["Coral Salve"]
+    "loot": [
+      "Coral Salve"
+    ]
   },
   "sentry_eye": {
     "name": "SENTRY EYE",
     "hp": 26,
     "kind": "machine",
-    "weak_to": ["push"],
+    "weak_to": [
+      "push"
+    ],
     "intro": "A floating sphere with a single red lens unfolds from the ceiling. 'INTRUDER. INTRUDER. INTRUDER.'",
     "bat_line": "Intruder? I was here ten thousand years before you were built.",
     "moves": [
-      {"name": "Laser", "damage": [5, 8], "telegraph": "The lens narrows to a red pinpoint..."},
-      {"name": "Laser", "damage": [5, 8], "telegraph": "The lens narrows to a red pinpoint..."},
-      {"name": "Overcharge Beam", "damage": [11, 14], "heavy": true, "telegraph": "The lens begins to glow white-hot!"}
+      {
+        "name": "Laser",
+        "damage": [
+          5,
+          8
+        ],
+        "telegraph": "The lens narrows to a red pinpoint..."
+      },
+      {
+        "name": "Laser",
+        "damage": [
+          5,
+          8
+        ],
+        "telegraph": "The lens narrows to a red pinpoint..."
+      },
+      {
+        "name": "Overcharge Beam",
+        "damage": [
+          11,
+          14
+        ],
+        "heavy": true,
+        "telegraph": "The lens begins to glow white-hot!"
+      }
     ],
     "defeat": "The sentry's lens cracks, and it drops to the floor like a stone.",
-    "loot": ["Glowmoss"]
+    "loot": [
+      "Glowmoss"
+    ]
   },
   "five_finger": {
     "name": "FIVE FINGER",
@@ -87,10 +199,283 @@
     "intro": "The sea splits open. Five Finger wades out of the surf: a giant robot taller than the cliffs, dragging a colossal five-fingered hand through the sand. A loudspeaker crackles. 'DR. NAZŌ SENDS HIS REGARDS!'",
     "bat_line": "Nazō! You send iron to fight the god of justice? HA-HA-HA-HA!",
     "moves": [
-      {"name": "Finger Cannons", "damage": [5, 8], "telegraph": "Five Finger swivels its five finger-cannons toward you..."},
-      {"name": "Stomp", "damage": [4, 7], "telegraph": "Five Finger lifts a massive leg..."},
-      {"name": "Crushing Palm", "damage": [16, 20], "heavy": true, "telegraph": "Five Finger raises its colossal palm high overhead!"}
+      {
+        "name": "Finger Cannons",
+        "damage": [
+          5,
+          8
+        ],
+        "telegraph": "Five Finger swivels its five finger-cannons toward you..."
+      },
+      {
+        "name": "Stomp",
+        "damage": [
+          4,
+          7
+        ],
+        "telegraph": "Five Finger lifts a massive leg..."
+      },
+      {
+        "name": "Crushing Palm",
+        "damage": [
+          16,
+          20
+        ],
+        "heavy": true,
+        "telegraph": "Five Finger raises its colossal palm high overhead!"
+      }
     ],
     "defeat": "Five Finger staggers, its hand smoking. It turns and wades back into the sea, sinking beneath the waves. It is not destroyed. Not yet."
+  },
+  "lantern_angler": {
+    "name": "LANTERN ANGLER",
+    "hp": 32,
+    "kind": "beast",
+    "intro": "One of the drowned street lamps blinks... and opens a mouth full of needle teeth. The 'lamp' is a lure on the head of a fish the size of a bus.",
+    "bat_line": "A lamp that hunts in the dark. You picked the wrong traveler, fish.",
+    "moves": [
+      {
+        "name": "Lure Bite",
+        "damage": [
+          6,
+          9
+        ],
+        "telegraph": "The angler dims its lure and lunges..."
+      },
+      {
+        "name": "Thrash",
+        "damage": [
+          5,
+          8
+        ],
+        "telegraph": "The angler whips its body through the water..."
+      },
+      {
+        "name": "Swallow Whole",
+        "damage": [
+          12,
+          15
+        ],
+        "heavy": true,
+        "telegraph": "The angler's jaw unhinges impossibly wide!"
+      }
+    ],
+    "defeat": "The angler's lure gutters out, and it drifts away into the dark water."
+  },
+  "shell_crab": {
+    "name": "GIANT SHELL CRAB",
+    "hp": 36,
+    "kind": "beast",
+    "weak_to": [
+      "push"
+    ],
+    "intro": "The rubble shifts. What you took for a market stall rises on eight legs: a crab with a shell like a cathedral dome.",
+    "bat_line": "Even the stones of Atlantis have grown claws.",
+    "moves": [
+      {
+        "name": "Pincer",
+        "damage": [
+          6,
+          9
+        ],
+        "telegraph": "The crab raises a pincer..."
+      },
+      {
+        "name": "Shell Slam",
+        "damage": [
+          5,
+          8
+        ],
+        "telegraph": "The crab rears up on its back legs..."
+      },
+      {
+        "name": "Crushing Claw",
+        "damage": [
+          13,
+          16
+        ],
+        "heavy": true,
+        "telegraph": "The crab's great claw opens wide around you!"
+      }
+    ],
+    "defeat": "Flipped onto its back, the crab scrabbles helplessly, then flees sideways into the dark.",
+    "loot": [
+      "Glowmoss"
+    ]
+  },
+  "brine_phantom": {
+    "name": "BRINE PHANTOM",
+    "hp": 30,
+    "kind": "spirit",
+    "intro": "The temple pools ripple, and a figure of seawater stands up out of them, salt crusting its hollow eyes.",
+    "bat_line": "You have forgotten who you were. I will remind you.",
+    "moves": [
+      {
+        "name": "Drowning Grasp",
+        "damage": [
+          6,
+          8
+        ],
+        "telegraph": "The phantom reaches for your throat..."
+      },
+      {
+        "name": "Salt Wail",
+        "damage": [
+          5,
+          7
+        ],
+        "telegraph": "The phantom's mouth fills with foam..."
+      }
+    ],
+    "defeat": "The phantom collapses into a puddle of ordinary seawater. Somewhere, a bell rings once.",
+    "loot": [
+      "Glowmoss"
+    ]
+  },
+  "atlantean_champion": {
+    "name": "ATLANTEAN CHAMPION",
+    "hp": 46,
+    "kind": "guardian",
+    "intro": "A warrior of green bronze steps down from its alcove, spear and shield ringing. 'NONE TAKE THE ARMOR. NOT EVEN A GOD. PROVE YOURSELF, JUDGE.'",
+    "bat_line": "Then let us see what ten thousand years of waiting have taught you.",
+    "moves": [
+      {
+        "name": "Spear Thrust",
+        "damage": [
+          6,
+          9
+        ],
+        "telegraph": "The champion levels its spear..."
+      },
+      {
+        "name": "Shield Bash",
+        "damage": [
+          5,
+          8
+        ],
+        "telegraph": "The champion braces behind its shield..."
+      },
+      {
+        "name": "Judgment Cleave",
+        "damage": [
+          16,
+          19
+        ],
+        "heavy": true,
+        "telegraph": "The champion raises its spear in both hands for a killing blow!"
+      }
+    ],
+    "defeat": "The champion drops to one knee and lays down its spear. 'YOU ARE WORTHY, JUDGE. WEAR WHAT I COULD NOT.'"
+  },
+  "tide_guardian": {
+    "name": "TIDE GUARDIAN",
+    "hp": 44,
+    "kind": "guardian",
+    "weak_to": [
+      "push"
+    ],
+    "intro": "Steam parts around a figure of coral and brass, its chest a churning whirlpool. Behind it, on an altar, something gleams.",
+    "bat_line": "Stand aside, guardian. The Judge has come for what is his.",
+    "moves": [
+      {
+        "name": "Tidal Fist",
+        "damage": [
+          7,
+          10
+        ],
+        "telegraph": "The guardian draws back a fist of rushing water..."
+      },
+      {
+        "name": "Steam Burst",
+        "damage": [
+          5,
+          8
+        ],
+        "telegraph": "Vents on the guardian's shoulders hiss open..."
+      },
+      {
+        "name": "Maelstrom",
+        "damage": [
+          15,
+          18
+        ],
+        "heavy": true,
+        "telegraph": "The whirlpool in the guardian's chest spins into a roaring maelstrom!"
+      }
+    ],
+    "defeat": "The whirlpool in the guardian's chest slows, and stills. It bows, and steps aside."
+  },
+  "nazo_frogman": {
+    "name": "NAZŌ FROGMAN",
+    "hp": 34,
+    "kind": "human",
+    "intro": "A diver in a black wetsuit and Nazō's insignia surfaces from a pen, spear gun raised. 'Admiral! It's the skeleton!'",
+    "bat_line": "Tell your admiral the Judge is coming. If you live.",
+    "moves": [
+      {
+        "name": "Spear Gun",
+        "damage": [
+          6,
+          9
+        ],
+        "telegraph": "The frogman reloads his spear gun..."
+      },
+      {
+        "name": "Diving Knife",
+        "damage": [
+          5,
+          8
+        ],
+        "telegraph": "The frogman draws a serrated knife..."
+      }
+    ],
+    "defeat": "The frogman tears off his mask and dives into the black water, swimming for his life.",
+    "loot": [
+      "Coral Salve"
+    ]
+  },
+  "gorgo": {
+    "name": "ADMIRAL GORGO",
+    "hp": 130,
+    "kind": "beast",
+    "boss": true,
+    "intro": "The harbor water erupts. A bronze sea-serpent longer than a battleship rears up: the Leviathan, an Atlantean war-machine, with cables bolted into its skull. On its head stands a man in a rotting naval coat, one arm replaced by a steel harpoon. ADMIRAL GORGO.",
+    "bat_line": "Gorgo. You have stolen from the dead. Now the dead have come to collect.",
+    "moves": [
+      {
+        "name": "Harpoon Volley",
+        "damage": [
+          8,
+          11
+        ],
+        "telegraph": "Gorgo aims his harpoon arm. 'FIRE!'"
+      },
+      {
+        "name": "Tail Sweep",
+        "damage": [
+          7,
+          10
+        ],
+        "telegraph": "The Leviathan's tail rises from the water behind you..."
+      },
+      {
+        "name": "Depth Charge",
+        "damage": [
+          9,
+          12
+        ],
+        "telegraph": "Gorgo hurls a barrel-shaped charge into the water at your feet..."
+      },
+      {
+        "name": "Leviathan Crush",
+        "damage": [
+          20,
+          24
+        ],
+        "heavy": true,
+        "telegraph": "Gorgo yanks the cables. The Leviathan rears up to crush you beneath its whole weight!"
+      }
+    ],
+    "defeat": "The Leviathan shudders, tears the cables from its skull, and throws Gorgo into the sea. Freed at last, the ancient machine sinks peacefully to the harbor floor."
   }
 }

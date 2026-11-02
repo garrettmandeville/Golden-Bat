@@ -104,16 +104,80 @@
     },
     {
       "text": "[gold][slow]END OF ACT I[norm]",
+      "pause": 2.5,
+      "clear": true
+    }
+  ],
+  "act2_intro": [
+    {
+      "text": "[gold][slow]ACT II — THE SUNKEN CITY[norm]",
+      "pause": 2.0,
+      "clear": true
+    },
+    "THAT NIGHT, A ROAR SPLITS THE SKY ABOVE THE ISLAND.",
+    "THE FLYING SUPER CAR OF THE PEARL RESEARCH INSTITUTE DROPS FROM THE CLOUDS AND SKIDS ACROSS THE SHIPWRECKED BEACH.",
+    "PROF. YAMATONE: 'Marie! Thank heavens! And you must be... good grief. You're even more frightening than the legends say.'",
+    {
+      "text": "[gold]GOLDEN BAT: 'The legends were kind, Professor.'",
       "pause": 1.5,
-      "clear": false
+      "clear": true
+    },
+    "PROF. YAMATONE: 'If the lens is somewhere in that drowned city, we're going down after it. All of us. Marie, get in.'",
+    "THE SUPER CAR'S WHEELS FOLD INTO FINS. ITS ROOF SEALS SHUT. IT ROLLS INTO THE SURF... AND DIVES.",
+    {
+      "text": "GOLDEN BAT DESCENDS ALONE, DOWN THE CRYSTAL STAIR BENEATH THE SHATTERED OBSERVATION DECK, INTO THE LOST CITY OF ATLANTIS.",
+      "pause": 2.5,
+      "clear": true
     },
     {
-      "text": "TO BE CONTINUED IN ACT II: THE SUNKEN CITY...",
+      "text": "TIP: MARIE AND THE PROFESSOR HAVE MADE CAMP AT BELL LANDING. MARIE CAN STILL HELP YOU REST, SAVE, AND REVIVE.",
       "pause": 3.0,
       "clear": true
     }
   ],
-  "act_continue": "ACT II: THE SUNKEN CITY IS STILL BEING WRITTEN. YOUR PROGRESS IS SAVED.",
+  "act2_end": [
+    "GORGO DRAGS HIMSELF ONTO THE DECK OF HIS SUBMARINE, SPITTING SEAWATER.",
+    "ADMIRAL GORGO: 'Laugh while you can, Judge! The Eye of Atlantis is already in the Doctor's hands. By tomorrow, Icarus will answer to Nazō alone!'",
+    {
+      "text": "THE SUBMARINE CRASH-DIVES AND VANISHES INTO THE BLACK WATER.",
+      "pause": 2.0,
+      "clear": true
+    },
+    "HIGH ABOVE, IN THE RUINS, THE SPECTRAL WALL GUARDING THE HALL OF ANCIENT TECH BEGINS TO PULSE LIKE A HEARTBEAT.",
+    "AND IN THE NIGHT SKY, FOR THE FIRST TIME, THE ROGUE PLANET ICARUS IS VISIBLE TO THE NAKED EYE: A RED STAR, GROWING BRIGHTER.",
+    {
+      "text": "[gold]GOLDEN BAT: 'Nazō. I am coming for you. [laugh]HA-HA-HA-HA-HAAA...!'",
+      "pause": 2.5,
+      "clear": true
+    },
+    {
+      "text": "[gold][slow]END OF ACT II[norm]",
+      "pause": 2.5,
+      "clear": true
+    }
+  ],
+  "acts": [
+    {
+      "start_flag": "act2_started",
+      "requires": {
+        "flags": [
+          "act1_complete"
+        ]
+      },
+      "intro": "act2_intro",
+      "start_room": "Sunken Stair"
+    },
+    {
+      "start_flag": "act3_started",
+      "requires": {
+        "flags": [
+          "act2_complete"
+        ]
+      },
+      "unfinished": true,
+      "unfinished_text": "TO BE CONTINUED IN ACT III: THE SPECTRAL CANNON... (STILL BEING WRITTEN. YOUR PROGRESS IS SAVED.)"
+    }
+  ],
   "revive": [
     "DARKNESS...",
     "THEN, A SINGLE DROP OF WATER.",
@@ -123,7 +187,7 @@
       "clear": false
     },
     {
-      "text": "THE GOLDEN SKELETON RISES ONCE MORE IN THE ANCIENT TOMB.",
+      "text": "THE GOLDEN SKELETON RISES ONCE MORE.",
       "pause": 2.0,
       "clear": true
     }

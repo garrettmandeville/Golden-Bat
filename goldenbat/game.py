@@ -14,9 +14,6 @@ from goldenbat.commands import handle_command, describe_room
 from goldenbat.cinematics import display_title, intro_sequence, play_ending
 from goldenbat.text import scroll_text, play_beats, pause, clear
 
-# Marie keeps watch here and revives Golden Bat when he falls
-REVIVE_ROOM = "Ancient Tomb"
-
 def get_user_input(state):
     """
     Displays the current location, stats, and inventory, then prompts for command input.
@@ -61,7 +58,8 @@ def handle_defeat(state, story):
     state.drops -= 1
     play_beats(story["revive"])
     state.restore()
-    state.current_room = REVIVE_ROOM
+    # Marie revives Golden Bat wherever she keeps camp
+    state.current_room = state.camp()
     state.just_entered = False
     scroll_text(f"(Drops of water remaining: {state.drops})")
     pause()
@@ -107,6 +105,30 @@ def enter_room(state, story):
             return "act_end"
     return "continue"
 
+def start_next_act(state, story):
+    """
+    Begins any act from story.json whose requirements are met: plays its intro, restores
+    HP and Energy, moves the player to its first room, and autosaves.
+
+    Returns:
+        bool: False if the next act hasn't been written yet (the game stops here).
+    """
+    for act in story["acts"]:
+        if act["start_flag"] in state.flags or not state.meets(act["requires"]):
+            continue
+        clear()
+        if act.get("unfinished"):
+            scroll_text(act["unfinished_text"])
+            pause(3.0)
+            return False
+        play_beats(story[act["intro"]])
+        state.flags.add(act["start_flag"])
+        # Time passes between acts, so Golden Bat starts each one at full strength
+        state.restore()
+        state.move_to(act["start_room"])
+        save_game(state)
+    return True
+
 def play(state, story):
     """
     Main gameplay loop.
@@ -144,15 +166,12 @@ def run():
         intro_sequence(story)
 
     while True:
-        if "act1_complete" in state.flags:
-            clear()
-            scroll_text(story["act_continue"])
-            pause(3.0)
+        if not start_next_act(state, story):
             return
 
         result = play(state, story)
         if result == "act_end":
-            # Loops back to the act check above
+            # Loops back to start the next act
             continue
         if result != "game_over":
             return

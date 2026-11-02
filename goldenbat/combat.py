@@ -19,6 +19,8 @@ FLEE_CHANCE = 0.6
 LAUGH_FRIGHT_CHANCE = 0.4
 # Only living things can be frightened by the laugh
 FEARFUL_KINDS = ("human", "beast")
+# The Spectral Reins can seize beasts and ancient machines, but not people or spirits
+BINDABLE_KINDS = ("beast", "machine", "guardian")
 
 
 class Battle:
@@ -32,6 +34,7 @@ class Battle:
         self.turn = 0
         self.vanished = False
         self.enemy_skips = False
+        self.enemy_bound = False
         self.log = []
 
     # ---- Helpers ----
@@ -55,7 +58,13 @@ class Battle:
     def abilities(self):
         """Abilities granted by relics in the inventory, in relic order."""
         return [self.state.items[name]["ability"] for name in self.state.relics()
-                if name in self.state.inventory and "ability" in self.state.items[name]]
+                if name in self.state.inventory and "ability" in self.state.items[name]
+                and not self.state.items[name]["ability"].get("passive")]
+
+    def damage_reduction(self):
+        """Fraction of incoming damage blocked by passive abilities like Iron Guard."""
+        return sum(self.state.items[name]["ability"].get("reduction", 0) for name in self.state.relics()
+                   if name in self.state.inventory and "ability" in self.state.items[name])
 
     def consumables(self):
         """Unique consumable item names in the inventory."""
@@ -135,6 +144,19 @@ class Battle:
                     self.log.append(f"{self.name} is knocked off balance!")
         elif effect == "vanish":
             self.vanished = True
+        elif effect == "water":
+            before = self.state.hp
+            self.state.hp = min(MAX_HP, self.state.hp + ability["heal_hp"])
+            self.log.append(f"You recover {self.state.hp - before} HP.")
+            if self.is_spirit():
+                self.log.append("The living water burns the spirit!")
+                self.damage_enemy(random.randint(*ability["damage"]), effect)
+        elif effect == "bind":
+            if self.enemy["kind"] in BINDABLE_KINDS:
+                self.enemy_bound = True
+                self.log.append(f"Ghostly reins lash around {self.name}. It is yours, for one move.")
+            else:
+                self.log.append(f"The reins find nothing to hold. {self.name} cannot be ridden.")
         return True
 
     def use_item(self):
@@ -152,7 +174,9 @@ class Battle:
     def laugh(self):
         audio.play_sfx("laugh")
         self.log.append(f"{GOLD}GOLDEN BAT: 'HA-HA-HA-HA-HAAA!'{RESET}")
-        if self.enemy["kind"] in FEARFUL_KINDS and random.random() < LAUGH_FRIGHT_CHANCE:
+        if self.enemy.get("boss"):
+            self.log.append(f"{self.name} is too far gone in its fury to fear you.")
+        elif self.enemy["kind"] in FEARFUL_KINDS and random.random() < LAUGH_FRIGHT_CHANCE:
             self.enemy_skips = True
             self.log.append(f"{self.name} freezes in terror!")
         elif self.enemy["kind"] in FEARFUL_KINDS:
@@ -169,11 +193,17 @@ class Battle:
         if self.enemy_skips:
             self.enemy_skips = False
             self.log.append(f"{self.name} loses its chance to attack!")
+        elif self.enemy_bound:
+            # Bound by the Spectral Reins: the move is turned back on its user
+            self.enemy_bound = False
+            self.log.append(f"You wrench the reins! {self.name}'s {move['name']} turns back on itself!")
+            self.damage_enemy(random.randint(*move["damage"]))
         elif self.vanished:
             self.vanished = False
             self.log.append(f"{move['name']}! It strikes only empty air.")
         else:
             damage = random.randint(*move["damage"])
+            damage = round(damage * (1 - self.damage_reduction()))
             self.state.hp = max(0, self.state.hp - damage)
             self.log.append(f"{RED}{move['name']}! You take {damage} damage.{RESET}")
 

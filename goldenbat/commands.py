@@ -8,9 +8,9 @@ Description: Handles exploration commands (go, get, use, talk, search, path, roo
 import time
 from goldenbat.audio import audio
 from goldenbat.combat import use_consumable
-from goldenbat.npcs import find_npc, talk, quest_status
+from goldenbat.npcs import find_npc, npc_name, talk, quest_status
 from goldenbat.state import MAX_HP, MAX_ENERGY
-from goldenbat.text import scroll_text, pause, clear, GOLD, RESET
+from goldenbat.text import scroll_text, play_beats, pause, clear, GOLD, RESET
 
 HELP_TEXT = """
   go [direction]   Move to an adjacent room (e.g. go north)
@@ -132,7 +132,11 @@ def cmd_use(state, target):
         if interaction:
             state.flags.add(interaction["flag"])
             state.room.setdefault("items", []).extend(interaction.get("add_items", []))
-            scroll_text(f"\n{interaction['text']}")
+            if "beats" in interaction:
+                clear()
+                play_beats(interaction["beats"])
+            else:
+                scroll_text(f"\n{interaction['text']}")
         else:
             scroll_text(f"\nYou hold up the {name}. Nothing happens here.")
     pause()
@@ -143,8 +147,13 @@ def cmd_talk(state, target):
     npc_id = find_npc(state, target)
     if npc_id:
         talk(state, npc_id)
+        return
+    if target:
+        scroll_text("\nThere's no one here by that name.")
+    elif state.npcs():
+        scroll_text(f"\nTalk to whom? ({', '.join(npc_name(npc) for npc in state.npcs())})")
     else:
-        scroll_text("\nThere's no one here by that name." if target else "\nThere's no one here to talk to.")
+        scroll_text("\nThere's no one here to talk to.")
         pause()
         clear()
 
@@ -157,7 +166,8 @@ def cmd_status(state, target):
     for relic in state.relics():
         if relic in state.inventory:
             ability = state.items[relic].get("ability")
-            print(f"    {relic}" + (f"  ->  {ability['name']}: {ability['summary']}" if ability else ""))
+            passive = " (passive)" if ability and ability.get("passive") else ""
+            print(f"    {relic}" + (f"  ->  {ability['name']}{passive}: {ability['summary']}" if ability else ""))
     print("\n  QUESTS")
     for line in quest_status(state):
         print(f"    {line}")
