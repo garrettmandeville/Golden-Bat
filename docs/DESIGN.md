@@ -60,19 +60,26 @@ the Hall of Champions, the Abyssal Stables, and the Drowned Harbor.
   visible in the sky.
 
 ### Act III — The Spectral Cannon
-The Hall of Ancient Tech becomes Nazō's fortress, about 6 rooms. Icarus grows larger in the
-sky with every scene.
+The Super Car resurfaces and overloads Nazō's barrier, and Marie and Yamatone make camp in
+the Ancient Atlantean Lab. Behind it, the Hall of Ancient Tech is now the gate of Nazō's
+fortress: the Assembly Bay, Orbital Control, the Generator Core, the Spectral Bridge, and the
+Cannon Chamber. Icarus fills more of the sky with every scene.
 
-- **Relic:** Icarus Data.
-- **Bosses:** Five Finger rematch, then a multi-phase battle with Dr. Nazō.
+- **Relic:** Icarus Data (Orbital Control). Its Analyze ability exposes a weak point.
+- **Puzzle:** the Spectral Reins take command of the Atlantean generators to light the bridge.
+- **Bosses:** Five Finger Mk II in the Assembly Bay, then Dr. Nazō in two phases. Halfway
+  through, he merges with the Spectral Cannon (becoming a machine the Reins can seize), and
+  the seven relics answer with a second wind for Golden Bat.
+- **The door:** entering the Cannon Chamber asks for confirmation. There is no turning back,
+  and no revives inside.
 
 ### Endings
 
 | Ending | Condition |
 |---|---|
 | **Lose** | Defeated in the finale, or reaching it without all relics. |
-| **Win** | All seven relics. |
-| **True** | All relics, the Botan Rice Candy, Marie's side quests completed, and the spirits freed. |
+| **Win** | Defeat Dr. Nazō with all seven relics. |
+| **True** | Win, while carrying the Botan Rice Candy and having completed all three of Marie's quests: the Ship Radio, Father's Journal, and the Sleeping Spirits. |
 
 ## Systems
 
@@ -149,5 +156,4 @@ Each phase is playable and committed on its own.
 1. ✅ **Engine and data files.** The classic game rebuilt on the new engine, playing the same as `classic`.
 2. ✅ **Act I.** HP, Energy, combat, relic abilities, Marie, saving, and the Act I content.
 3. ✅ **Act II.** The Sunken City. Each act break restores HP and Energy and autosaves.
-   The build currently ends after Act II; the Icarus Data and the endings return in Act III.
-4. **Act III.** The fortress, the finale, the three endings, and README updates.
+4. ✅ **Act III.** The fortress, the finale, the endings, and README updates.

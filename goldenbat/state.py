@@ -46,10 +46,11 @@ class GameState:
         """
         Checks a 'requires' block from the data files against the current state.
 
-        Supported keys: flags, not_flags, items, not_items, all_relics.
+        Supported keys: flags, not_flags, items, not_items, and all_relics (true means every
+        relic must be carried; false means at least one must be missing).
         """
         requires = requires or {}
-        if requires.get("all_relics") and not self.has_all_relics():
+        if "all_relics" in requires and requires["all_relics"] != self.has_all_relics():
             return False
         return (all(flag in self.flags for flag in requires.get("flags", []))
                 and not any(flag in self.flags for flag in requires.get("not_flags", []))

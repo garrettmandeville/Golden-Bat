@@ -59,11 +59,7 @@
   "prologue_laugh": "[gold]GOLDEN BAT: 'ha-ha-ha-HA-HA-HAAA…!!!'[reset]",
   "game_start": "\nWELCOME TO [gold]GOLDEN BAT[reset]. DRIVE DR. NAZŌ FROM THE RUINS OF ATLANTIS, RECOVER THE LOST RELICS, AND SAVE THE EARTH FROM THE ROGUE PLANET ICARUS...",
   "act1_intro": [
-    {
-      "text": "[gold][slow]ACT I — THE RUINS OF ATLANTIS[norm]",
-      "pause": 2.0,
-      "clear": true
-    },
+    {"text": "[gold][slow]ACT I — THE RUINS OF ATLANTIS[norm]", "pause": 2.0, "clear": true},
     "THE GOLDEN SKELETON RISES FROM THE SARCOPHAGUS. A BLACK CAPE UNFURLS FROM ITS SHOULDERS LIKE THE WINGS OF A GREAT BAT.",
     "[gold]GOLDEN BAT: 'Ten thousand years I have slept. Ten thousand years evil has waited.'",
     "[gold]GOLDEN BAT: '[slow]Tremble, Nazō. Justice is awake.'",
@@ -102,26 +98,14 @@
       "pause": 2.5,
       "clear": true
     },
-    {
-      "text": "[gold][slow]END OF ACT I[norm]",
-      "pause": 2.5,
-      "clear": true
-    }
+    {"text": "[gold][slow]END OF ACT I[norm]", "pause": 2.5, "clear": true}
   ],
   "act2_intro": [
-    {
-      "text": "[gold][slow]ACT II — THE SUNKEN CITY[norm]",
-      "pause": 2.0,
-      "clear": true
-    },
+    {"text": "[gold][slow]ACT II — THE SUNKEN CITY[norm]", "pause": 2.0, "clear": true},
     "THAT NIGHT, A ROAR SPLITS THE SKY ABOVE THE ISLAND.",
     "THE FLYING SUPER CAR OF THE PEARL RESEARCH INSTITUTE DROPS FROM THE CLOUDS AND SKIDS ACROSS THE SHIPWRECKED BEACH.",
     "PROF. YAMATONE: 'Marie! Thank heavens! And you must be... good grief. You're even more frightening than the legends say.'",
-    {
-      "text": "[gold]GOLDEN BAT: 'The legends were kind, Professor.'",
-      "pause": 1.5,
-      "clear": true
-    },
+    {"text": "[gold]GOLDEN BAT: 'The legends were kind, Professor.'", "pause": 1.5, "clear": true},
     "PROF. YAMATONE: 'If the lens is somewhere in that drowned city, we're going down after it. All of us. Marie, get in.'",
     "THE SUPER CAR'S WHEELS FOLD INTO FINS. ITS ROOF SEALS SHUT. IT ROLLS INTO THE SURF... AND DIVES.",
     {
@@ -150,47 +134,50 @@
       "pause": 2.5,
       "clear": true
     },
+    {"text": "[gold][slow]END OF ACT II[norm]", "pause": 2.5, "clear": true}
+  ],
+  "act3_intro": [
+    {"text": "[gold][slow]ACT III — THE SPECTRAL CANNON[norm]", "pause": 2.0, "clear": true},
+    "THE SUPER CAR BURSTS FROM THE SEA AND CLIMBS INTO A SKY STAINED RED.",
+    "ICARUS HANGS OVER THE ISLAND LIKE A SECOND MOON, SO CLOSE THAT ITS MOUNTAINS CAN BE SEEN.",
     {
-      "text": "[gold][slow]END OF ACT II[norm]",
-      "pause": 2.5,
+      "text": "THE SUPER CAR SETS DOWN AMONG THE CONSOLES OF THE ANCIENT ATLANTEAN LAB. YAMATONE RUNS CABLES FROM ITS ENGINE INTO THE CRYSTAL COMPUTERS.",
+      "pause": 2.0,
+      "clear": true
+    },
+    "PROF. YAMATONE: 'If I pour the car's batteries into the old circuits... yes! I can overload Nazō's barrier for a few hours. That's all you'll get, Golden Bat.'",
+    "MARIE: 'Golden Bat... come back to us.'",
+    "WITH A SOUND LIKE TEARING SILK, THE SPECTRAL WALL COLLAPSES. BEYOND IT, NAZŌ'S FORTRESS AWAITS.",
+    {
+      "text": "[gold]GOLDEN BAT: 'Hold the door, Professor. I will not be long.'",
+      "pause": 2.0,
+      "clear": true
+    },
+    {
+      "text": "TIP: MARIE AND THE PROFESSOR HAVE MADE CAMP IN THE ANCIENT ATLANTEAN LAB. GATHER ALL SEVEN RELICS BEFORE YOU FACE DR. NAZŌ.",
+      "pause": 3.0,
       "clear": true
     }
   ],
   "acts": [
     {
       "start_flag": "act2_started",
-      "requires": {
-        "flags": [
-          "act1_complete"
-        ]
-      },
+      "requires": {"flags": ["act1_complete"]},
       "intro": "act2_intro",
       "start_room": "Sunken Stair"
     },
     {
       "start_flag": "act3_started",
-      "requires": {
-        "flags": [
-          "act2_complete"
-        ]
-      },
-      "unfinished": true,
-      "unfinished_text": "TO BE CONTINUED IN ACT III: THE SPECTRAL CANNON... (STILL BEING WRITTEN. YOUR PROGRESS IS SAVED.)"
+      "requires": {"flags": ["act2_complete"]},
+      "intro": "act3_intro",
+      "start_room": "Ancient Atlantean Lab"
     }
   ],
   "revive": [
     "DARKNESS...",
     "THEN, A SINGLE DROP OF WATER.",
-    {
-      "text": "MARIE: 'Please... please get up!'",
-      "pause": 1.5,
-      "clear": false
-    },
-    {
-      "text": "THE GOLDEN SKELETON RISES ONCE MORE.",
-      "pause": 2.0,
-      "clear": true
-    }
+    {"text": "MARIE: 'Please... please get up!'", "pause": 1.5, "clear": false},
+    {"text": "THE GOLDEN SKELETON RISES ONCE MORE.", "pause": 2.0, "clear": true}
   ],
   "game_over": [
     "MARIE TIPS THE CANTEEN. NOTHING FALLS. THE WATER IS GONE.",
@@ -205,29 +192,34 @@
       "id": "true",
       "requires": {
         "all_relics": true,
-        "items": [
-          "Botan Rice Candy"
-        ]
+        "items": ["Botan Rice Candy"],
+        "flags": ["journal_complete", "radio_fixed", "spirits_freed"]
       },
       "beats": [
+        "DR. NAZŌ LIES DEFEATED. BUT ABOVE THE OPEN DOME, ICARUS FILLS THE WHOLE SKY. THE GROUND SHAKES. THE SEA RISES.",
+        "MARIE AND PROFESSOR YAMATONE RUN ACROSS THE SPECTRAL BRIDGE INTO THE CHAMBER.",
         {
-          "text": "YOU ENTER AND FACE DR. NAZŌ WITH THE FULL MIGHT OF ATLANTIS.",
-          "pause": 1.5,
+          "text": "PROF. YAMATONE: 'It's too close! Even with the Eye, no cannon on Earth could stop it now!'",
+          "pause": 2.0,
           "clear": true
         },
+        "MARIE PRESSES HER FATHER'S JOURNAL INTO GOLDEN BAT'S HAND. ON THE LAST PAGE, IN THE PROFESSOR'S HANDWRITING: 'THE JUDGE WAS STRONGEST WHEN THE CHILDREN CHEERED.'",
         {
-          "text": "GOLDEN BAT UNWRAPS THE BOTAN RICE CANDY AND EATS IT, GIVING HIM A BURST OF NOSTALGIC ENERGY, WHILE THE 7 RELICS GLOW WITH BLINDING LIGHT!",
+          "text": "GOLDEN BAT UNWRAPS THE BOTAN RICE CANDY AND EATS IT, WRAPPER AND ALL. IT TASTES OF STREET CORNERS, PAPER THEATERS, AND A THOUSAND CHILDREN CHEERING.",
           "pause": 2.5,
-          "clear": false
+          "clear": true
         },
+        "FROM THE DROWNED CITY BELOW, THE SPIRITS OF ATLANTIS RISE IN A RIVER OF LIGHT, SINGING, AND POUR THEMSELVES INTO THE SEVEN RELICS.",
+        "GOLDEN BAT GROWS. HE RISES THROUGH THE DOME, PAST THE CLOUDS, INTO THE DARK: A GIANT GOLDEN SILHOUETTE STANDING AGAINST THE STARS.",
         {
-          "text": "\nGOLDEN BAT DOESN'T JUST DEFEAT FIVE FINGER AND DR. NAZŌ — HE TRANSFORMS INTO A GIANT GOLDEN SILHOUETTE, OVERTAKING THE COSMOS AND SHATTERING THE PLANET ICARUS WITH A SINGLE HEROIC STRIKE.",
+          "text": "WITH A SINGLE STRIKE OF THE SILVER BATON, HE SHATTERS ICARUS INTO A SHOWER OF HARMLESS SHOOTING STARS.",
           "pause": 3.0,
           "clear": true
         },
+        "AS DAWN BREAKS, ATLANTIS RISES FROM THE SEA FOR THE FIRST TIME IN TEN THOUSAND YEARS, ITS LANTERNS STILL BURNING.",
         {
-          "text": "[gold][slow]GOLDEN BAT: 'HA-HA-HA-HA-HA-HAAA...!!!'[norm]",
-          "pause": 2.0,
+          "text": "[gold][laugh][slow]GOLDEN BAT: 'HA-HA-HA-HA-HA-HAAA...!!!'[norm]",
+          "pause": 3.0,
           "clear": false
         }
       ],
@@ -237,85 +229,35 @@
     },
     {
       "id": "win",
-      "requires": {
-        "all_relics": true
-      },
+      "requires": {"all_relics": true},
       "beats": [
+        "DR. NAZŌ LIES AMONG THE SMOKING CABLES. THE EYE OF ATLANTIS FALLS FREE OF THE CANNON AND ROLLS, GLOWING, TO GOLDEN BAT'S FEET.",
+        "DR. NAZŌ: 'Curse you, Golden Bat... I will return!'",
         {
-          "text": "DR. NAZŌ STANDS IN THE MIDDLE OF THE ROOM, FACING AWAY FROM YOU, OVER AN ANCIENT SPECTRAL CANNON...",
+          "text": "A HATCH OPENS IN THE FLOOR. NAZŌ DROPS THROUGH IT, AND AN ESCAPE POD SCREAMS AWAY INTO THE NIGHT.",
           "pause": 2.0,
           "clear": true
         },
+        "THE FORTRESS SHUDDERS. WITHOUT ITS MASTER, IT BEGINS TO TEAR ITSELF APART, AND THE ISLAND BEGINS TO SINK.",
         {
-          "text": "DR. NAZŌ: 'So you've collected all the relics, Golden Bat? And retrieved the Icarus Data? Regardless, I have the special lens, and you will never destroy Icarus!'",
-          "pause": 2.5,
-          "clear": false
-        },
-        {
-          "text": "\n[gold]GOLDEN BAT: 'HA-HA-HA-HAAAA!'",
-          "pause": 1.5,
-          "clear": false
-        },
-        {
-          "text": "\nDR. NAZŌ: 'What's so funny, you fool?'",
-          "pause": 1.5,
-          "clear": true
-        },
-        {
-          "text": "GOLDEN BAT USES HIS SPECTRAL REINS AND GRAPPLES ON FIVE FINGER, SLASHING IT WITH A SINGLE DOWNWARD STRIKE WITH HIS SILVER BATON. GOLDEN BAT SNATCHES THE SPECIAL LENS FROM DR. NAZŌ.",
-          "pause": 2.5,
-          "clear": false
-        },
-        {
-          "text": "\nFIVE FINGER CRUMBLES UNDER ITS OWN WEIGHT AND BURSTS INTO FLAMES, AND BEGINS DIGGING VIOLENTLY INTO THE GROUND.",
+          "text": "GOLDEN BAT CARRIES THE EYE AND THE ICARUS DATA BACK ACROSS THE BRIDGE TO THE LAB, WHERE THE SUPER CAR'S ENGINE IS ALREADY RUNNING.",
           "pause": 2.0,
           "clear": true
         },
+        "PROF. YAMATONE: 'The Eye and the data! With these, the Institute's Super Destruction Beam Cannon can stop Icarus! Marie, quickly!'",
+        "MARIE: 'Thank you, Golden Bat!'",
         {
-          "text": "DR. NAZŌ: 'CURSE YOU, GOLDEN BAT! I WILL RETURN!'",
-          "pause": 2.0,
-          "clear": false
-        },
-        {
-          "text": "\nTHE MACHINE DISAPPEARS TUNNELING UNDERNEATH ATLANTIS, AND THE ISLAND BEGINS RUMBLING.",
-          "pause": 2.0,
-          "clear": true
-        },
-        {
-          "text": "GOLDEN BAT RUSHES BACK TO THE SHIPWRECKED BEACH TO SEE MARIE. THE HERO FINDS MARIE, AND HANDS HER THE SPECIAL LENS AND ICARUS DATA.",
-          "pause": 2.0,
-          "clear": false
-        },
-        {
-          "text": "\nJUST THEN, THE FLYING SUPER CAR APPEARS ON THE BEACH INSTANTANEOUSLY DRIVEN BY JAPANESE INVENTOR, PROFESSOR YAMATONE OF THE PEARL RESEARCH INSTITUTE.",
-          "pause": 2.5,
-          "clear": true
-        },
-        {
-          "text": "PROF. YAMATONE: 'Quickly, Marie! Come with me back to the Pearl Research Institute, before you meet the same fate as your father! With that lens and data, we can save the world!'",
-          "pause": 2.5,
-          "clear": false
-        },
-        {
-          "text": "\nMARIE: 'Thank you, Golden Bat!'",
-          "pause": 1.5,
-          "clear": false
-        },
-        {
-          "text": "\nPROF. YAMATONE: 'This is no time for solemn goodbyes!'",
+          "text": "PROF. YAMATONE: 'This is no time for solemn goodbyes!'",
           "pause": 1.5,
           "clear": true
         },
+        "THE SUPER CAR ROARS INTO THE SKY, LEAVING GOLDEN BAT ALONE ON THE SINKING ISLAND.",
         {
-          "text": "MARIE ENTERS THE SUPER CAR AND DISAPPEARS WITH PROFESSOR YAMATONE ALMOST AS FAST AS IT ARRIVED, LEAVING GOLDEN BAT BEHIND ON THE BEACH.",
-          "pause": 2.0,
-          "clear": false
-        },
-        {
-          "text": "\nTHE LOST ISLAND BEGINS SINKING UNDERWATER, WITH THE LINGERING LAUGHTER OF THE GOD OF JUSTICE...",
-          "pause": 2.0,
+          "text": "THREE NIGHTS LATER, A BEAM OF WHITE LIGHT LANCES UP FROM THE PEARL RESEARCH INSTITUTE, AND THE RED STAR OF ICARUS BURSTS APART.",
+          "pause": 2.5,
           "clear": true
         },
+        "BENEATH THE WAVES, IN THE TOMB WHERE IT ALL BEGAN, A GOLDEN SKELETON LIES DOWN TO SLEEP AGAIN, LAUGHING...",
         {
           "text": "[gold][laugh][slow]GOLDEN BAT: 'HA-HA-HA-HA-HA-HAAA...!!!'[norm]",
           "pause": 3.0,
@@ -331,22 +273,18 @@
       "requires": {},
       "beats": [
         {
-          "text": "THE HALL APPEARS EMPTY, WITH AN ANCIENT SPECTRAL CANNON IN THE MIDDLE OF THE ROOM...",
+          "text": "THE CANNON CHAMBER IS DARK. AT ITS CENTER, THE SPECTRAL CANNON POINTS AT THE BLAZING RED STAR OF ICARUS.",
           "pause": 2.0,
           "clear": true
         },
+        "DR. NAZŌ: 'Golden Bat! Did you really think you could defeat me without all the relics?'",
         {
-          "text": "DR. NAZŌ: 'Golden Bat! Did you really think you could defeat me without all the relics?'",
-          "pause": 2.5,
-          "clear": false
-        },
-        {
-          "text": "\nFIVE FINGER DESCENDS FROM THE CEILING, AND CAPTURES GOLDEN BAT IN ITS METALLIC GRIP.",
+          "text": "CHAINS OF SPECTRAL LIGHT ERUPT FROM THE FLOOR AND BIND GOLDEN BAT WHERE HE STANDS.",
           "pause": 2.5,
           "clear": true
         },
         {
-          "text": "DR. NAZŌ: 'There is nothing you can do to stop me! I will destroy Earth!'",
+          "text": "DR. NAZŌ: 'There is nothing you can do to stop me! Watch, Judge, as Icarus answers to ME!'",
           "pause": 3.0,
           "clear": false
         }
@@ -355,6 +293,29 @@
       "sfx_after_banner": "icarus",
       "banner": "GAME OVER!",
       "message": "Dr. Nazō has captured Golden Bat and Icarus impacts Earth."
+    },
+    {
+      "id": "defeat",
+      "requires": {},
+      "beats": [
+        "GOLDEN BAT FALLS. HIS BONES SCATTER ACROSS THE CHAMBER FLOOR.",
+        {
+          "text": "DR. NAZŌ: 'The Judge of Atlantis, defeated by a mere mortal! Ha... HA-HA-HA!'",
+          "pause": 2.5,
+          "clear": true
+        },
+        "FAR AWAY IN THE LAB, MARIE TIPS HER CANTEEN. BUT THE CHAMBER'S SPECTRAL WARDS SWALLOW EVERY DROP.",
+        {
+          "text": "THE SPECTRAL CANNON FIRES, AND ICARUS TURNS TOWARD THE EARTH.",
+          "pause": 3.0,
+          "clear": false
+        }
+      ],
+      "credits": "lose_credits",
+      "sfx_after_banner": "icarus",
+      "banner": "GAME OVER!",
+      "message": "Golden Bat has fallen, and Icarus answers to Dr. Nazō."
     }
-  ]
+  ],
+  "thanks": "\nTHANK YOU FOR PLAYING [gold]GOLDEN BAT[reset]. (Your last save is still waiting at the title screen.)"
 }

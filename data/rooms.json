@@ -3,142 +3,61 @@
   "rooms": {
     "Ancient Tomb": {
       "description": "A silent chamber of white stone. In the center lies the golden sarcophagus where Golden Bat slept for 10,000 years, its lid cracked in two upon the floor.",
-      "music": [
-        "tomb",
-        0.8
-      ],
+      "music": ["tomb", 0.8],
       "exits": {
         "East": "Secret Tunnel",
-        "North": {
-          "to": "Echoing Gallery",
-          "hidden": true,
-          "requires": {
-            "flags": [
-              "secret_path_open"
-            ]
-          }
-        }
+        "North": {"to": "Echoing Gallery", "hidden": true, "requires": {"flags": ["secret_path_open"]}}
       },
-      "items": [
-        "Silver Baton"
-      ],
-      "npcs": [
-        {
-          "id": "marie",
-          "requires": {
-            "not_flags": [
-              "act2_started"
-            ]
-          }
-        }
-      ],
+      "items": ["Silver Baton"],
+      "npcs": [{"id": "marie", "requires": {"not_flags": ["act2_started"]}}],
       "secrets": [
         {
-          "requires": {
-            "flags": [
-              "secret_path_open"
-            ]
-          },
+          "requires": {"flags": ["secret_path_open"]},
           "text": "You walk to the back of the tomb and see a small crack in the wall, leading north to some secret room..."
         }
       ],
       "extra": [
         {
-          "requires": {
-            "not_flags": [
-              "act2_started"
-            ]
-          },
+          "requires": {"not_flags": ["act2_started"]},
           "text": "[marie3]Marie sits beside it, her father's waterlogged notes spread across her lap..."
         },
         {
-          "requires": {
-            "flags": [
-              "act2_started"
-            ]
-          },
+          "requires": {"flags": ["act2_started"]},
           "text": "The tomb is empty now. Marie has gone below with Professor Yamatone."
         }
       ]
     },
     "Echoing Gallery": {
       "description": "\nThe room is filled with ancient wooden frames.\nInstead of statues, you see a series of painted boards depicting a golden figure saving children from monsters.\nA faint smell of candy fills the air — a memory of the sweets sold to children before the show began.\nA plaque reads: 'Before the screen, there was the paper. Before the comic, there was the street...'",
-      "music": [
-        "gallery",
-        0.6
-      ],
-      "exits": {
-        "South": "Ancient Tomb"
-      },
-      "items": [
-        "Botan Rice Candy"
-      ]
+      "music": ["gallery", 0.6],
+      "exits": {"South": "Ancient Tomb"},
+      "items": ["Botan Rice Candy"]
     },
     "Secret Tunnel": {
       "description": "A narrow, damp passageway lit by faint bioluminescent moss. Fresh bootprints in the mud lead toward the tomb...",
-      "music": [
-        "tunnel",
-        0.4
-      ],
-      "exits": {
-        "West": "Ancient Tomb",
-        "North": "Shipwrecked Beach"
-      },
-      "items": [
-        "Glowmoss"
-      ],
-      "encounters": [
-        {
-          "enemy": "nazo_trooper",
-          "flag": "tunnel_trooper_defeated"
-        }
-      ]
+      "music": ["tunnel", 0.4],
+      "exits": {"West": "Ancient Tomb", "North": "Shipwrecked Beach"},
+      "items": ["Glowmoss"],
+      "encounters": [{"enemy": "nazo_trooper", "flag": "tunnel_trooper_defeated"}]
     },
     "Shipwrecked Beach": {
       "description": "White sands littered with the wreckage of Professor Mire's ship. The Pacific waves crash against jagged rocks, and gulls pick at what the sea has left behind...",
       "extra": [
         {
-          "requires": {
-            "flags": [
-              "five_finger_defeated"
-            ]
-          },
+          "requires": {"flags": ["five_finger_defeated"]},
           "text": "Giant trenches scar the sand where Five Finger dragged itself back into the sea."
         }
       ],
-      "music": [
-        "beach",
-        0.4
-      ],
-      "exits": {
-        "East": "Abandoned Church",
-        "South": "Secret Tunnel",
-        "North": "Ocean-Facing Cliffs"
-      },
-      "items": [
-        "Ship Radio",
-        "Coral Salve"
-      ],
+      "music": ["beach", 0.4],
+      "exits": {"East": "Abandoned Church", "South": "Secret Tunnel", "North": "Ocean-Facing Cliffs"},
+      "items": ["Ship Radio", "Coral Salve"],
       "encounters": [
-        {
-          "enemy": "reef_serpent",
-          "flag": "beach_serpent_defeated"
-        },
+        {"enemy": "reef_serpent", "flag": "beach_serpent_defeated"},
         {
           "enemy": "five_finger",
           "flag": "five_finger_defeated",
-          "requires": {
-            "flags": [
-              "five_finger_awake"
-            ]
-          },
-          "victory": {
-            "beats": "act1_end",
-            "set_flags": [
-              "act1_complete"
-            ],
-            "end_act": "I"
-          }
+          "requires": {"flags": ["five_finger_awake"]},
+          "victory": {"beats": "act1_end", "set_flags": ["act1_complete"], "end_act": "I"}
         }
       ]
     },
@@ -146,29 +65,15 @@
       "description": "High, windswept precipices overlooking the vast ocean. From here, you can see the faint glimmer of the lost city below...",
       "extra": [
         {
-          "requires": {
-            "not_flags": [
-              "cape_lifted"
-            ]
-          },
+          "requires": {"not_flags": ["cape_lifted"]},
           "text": "Something red flutters on a ledge far below."
         }
       ],
-      "music": [
-        "cliffs",
-        0.4
-      ],
-      "exits": {
-        "East": "Abandoned Residential District",
-        "South": "Shipwrecked Beach"
-      },
+      "music": ["cliffs", 0.4],
+      "exits": {"East": "Abandoned Residential District", "South": "Shipwrecked Beach"},
       "secrets": [
         {
-          "requires": {
-            "not_flags": [
-              "cape_lifted"
-            ]
-          },
+          "requires": {"not_flags": ["cape_lifted"]},
           "text": "Far below, on a ledge battered by spray, a crimson cape is snagged on the rocks. No hand could reach it... but perhaps the wind could."
         }
       ],
@@ -177,126 +82,66 @@
           "item": "Kinesis Stone",
           "flag": "cape_lifted",
           "text": "You raise the Kinesis Stone. The wind obeys. A howling updraft tears the crimson cape from the rocks and lays it at your feet.",
-          "add_items": [
-            "Red Cape"
-          ]
+          "add_items": ["Red Cape"]
         }
       ]
     },
     "Abandoned Residential District": {
       "description": "Crumbling stone houses that once housed the people of Atlantis. Vines choke the ancient architecture, and lanterns still hang in the doorways, unlit for ten thousand years...",
-      "music": [
-        "town",
-        0.8
-      ],
-      "exits": {
-        "West": "Ocean-Facing Cliffs",
-        "East": "Rusted Armory"
-      },
-      "items": [
-        "Journal Page I"
-      ],
-      "encounters": [
-        {
-          "enemy": "lantern_wraith",
-          "flag": "district_wraith_defeated"
-        }
-      ]
+      "music": ["town", 0.8],
+      "exits": {"West": "Ocean-Facing Cliffs", "East": "Rusted Armory"},
+      "items": ["Journal Page I"],
+      "encounters": [{"enemy": "lantern_wraith", "flag": "district_wraith_defeated"}]
     },
     "Rusted Armory": {
       "description": "A chamber filled with decayed bronze weapons and empty racks that once held the military might of a lost empire. A towering bronze sentinel stands at the far wall, spear in hand...",
-      "music": [
-        "armory",
-        0.2
-      ],
-      "exits": {
-        "West": "Abandoned Residential District",
-        "South": "Ancient Atlantean Lab"
-      },
-      "items": [
-        "Coral Salve"
-      ],
-      "npcs": [
-        "sentinel"
-      ]
+      "music": ["armory", 0.2],
+      "exits": {"West": "Abandoned Residential District", "South": "Ancient Atlantean Lab"},
+      "items": ["Coral Salve"],
+      "npcs": ["sentinel"]
     },
     "Abandoned Church": {
       "description": "A towering structure with vaulted ceilings. Ancient symbols are carved into the stone, and a cold draft rises from the stairs leading down...",
-      "music": [
-        "church",
-        0.4
-      ],
-      "exits": {
-        "South": "Church Cellar",
-        "East": "Ancient Atlantean Lab",
-        "West": "Shipwrecked Beach"
-      },
-      "items": [
-        "Journal Page II"
-      ],
-      "encounters": [
-        {
-          "enemy": "weeping_acolyte",
-          "flag": "church_spirit_defeated"
-        }
-      ]
+      "music": ["church", 0.4],
+      "exits": {"South": "Church Cellar", "East": "Ancient Atlantean Lab", "West": "Shipwrecked Beach"},
+      "items": ["Journal Page II"],
+      "encounters": [{"enemy": "weeping_acolyte", "flag": "church_spirit_defeated"}]
     },
     "Church Cellar": {
       "description": "A dark, cramped basement filled with crates of old scrolls and strange, humming minerals. Fresh drill holes pock the walls. Something has been digging...",
-      "music": [
-        "cellar",
-        0.4
-      ],
-      "exits": {
-        "North": "Abandoned Church"
-      },
-      "items": [
-        "Kinesis Stone",
-        "Glowmoss"
-      ],
-      "encounters": [
-        {
-          "enemy": "mole_drone",
-          "flag": "cellar_drone_defeated"
-        }
-      ]
+      "music": ["cellar", 0.4],
+      "exits": {"North": "Abandoned Church"},
+      "items": ["Kinesis Stone", "Glowmoss"],
+      "encounters": [{"enemy": "mole_drone", "flag": "cellar_drone_defeated"}]
     },
     "Ancient Atlantean Lab": {
       "description": "A massive hall filled with advanced machinery and glowing crystalline computers from a forgotten science. Nazō's men have bolted crude cables into the ancient consoles...",
-      "music": [
-        "lab",
-        1.0
-      ],
+      "music": ["lab", 1.0],
       "exits": {
         "North": "Rusted Armory",
         "West": "Abandoned Church",
         "South": {
           "to": "Submerged Observation Deck",
-          "requires": {
-            "items": [
-              "Red Cape"
-            ]
-          },
+          "requires": {"items": ["Red Cape"]},
           "blocked_text": "The floor to the south has collapsed into a black chasm. The far side is too distant to leap... but something might fly across.",
           "pass_text": "The Red Cape snaps open like the wings of a great bat, and you glide across the chasm."
         },
         "East": {
           "to": "Hall of Ancient Tech",
-          "requires": {
-            "flags": [
-              "act3_open"
-            ]
-          },
+          "requires": {"flags": ["act3_started"]},
           "blocked_text": "A wall of crackling spectral energy seals the eastern hall. Somewhere behind it, a man is laughing."
         }
       },
-      "items": [
-        "Journal Page III"
+      "items": ["Journal Page III"],
+      "encounters": [{"enemy": "sentry_eye", "flag": "lab_sentry_defeated"}],
+      "npcs": [
+        {"id": "marie", "requires": {"flags": ["act3_started"]}},
+        {"id": "yamatone", "requires": {"flags": ["act3_started"]}}
       ],
-      "encounters": [
+      "extra": [
         {
-          "enemy": "sentry_eye",
-          "flag": "lab_sentry_defeated"
+          "requires": {"flags": ["act3_started"]},
+          "text": "The Super Car is parked between the consoles, cables running from its engine to the crystal computers. Marie and Professor Yamatone are working by its headlights."
         }
       ]
     },
@@ -304,145 +149,83 @@
       "description": "A glass-domed room beneath the waves. You can see the aquatic life of Atlantis swimming past the reinforced glass...",
       "extra": [
         {
-          "requires": {
-            "not_flags": [
-              "five_finger_awake"
-            ]
-          },
+          "requires": {"not_flags": ["five_finger_awake"]},
           "text": "Something vast moves in the deep, just beyond sight. You are not yet ready to face it."
         },
         {
-          "requires": {
-            "flags": [
-              "act1_complete"
-            ]
-          },
+          "requires": {"flags": ["act1_complete"]},
           "text": "The glass floor lies shattered. A spiral stair of crystal winds down through the cracks, toward the lights of a drowned city."
         }
       ],
-      "music": [
-        "observatory",
-        0.6
-      ],
+      "music": ["observatory", 0.6],
       "exits": {
         "North": "Ancient Atlantean Lab",
-        "Down": {
-          "to": "Sunken Stair",
-          "hidden": true,
-          "requires": {
-            "flags": [
-              "act1_complete"
-            ]
-          }
-        }
+        "Down": {"to": "Sunken Stair", "hidden": true, "requires": {"flags": ["act1_complete"]}}
       },
       "events": [
         {
           "id": "deck_sighting",
-          "requires": {
-            "items": [
-              "Silver Baton",
-              "Kinesis Stone",
-              "Red Cape"
-            ]
-          },
+          "requires": {"items": ["Silver Baton", "Kinesis Stone", "Red Cape"]},
           "beats": "deck_sighting",
-          "set_flags": [
-            "five_finger_awake"
-          ]
+          "set_flags": ["five_finger_awake"]
         }
       ]
     },
     "Hall of Ancient Tech": {
-      "description": "",
-      "music": [
-        "tech",
-        0.6
-      ],
-      "exits": {
-        "West": "Ancient Atlantean Lab"
-      },
-      "villain": "Nazo"
+      "description": "Once a hall of Atlantean wonders, now the gate of Nazō's fortress. Searchlights sweep across the ancient machinery, and Nazō's insignia hangs from every pillar. Through the open roof, the red star of Icarus burns in the sky.",
+      "music": ["tech", 0.6],
+      "exits": {"West": "Ancient Atlantean Lab", "East": "Assembly Bay"},
+      "encounters": [{"enemy": "nazo_elite", "flag": "gate_guard_defeated"}]
     },
     "Sunken Stair": {
       "description": "A spiral stair of living crystal winds down from the shattered deck into an enormous bubble of air. Below, a city of domes and towers glows with ten thousand drowned lanterns. Fish drift past the walls of the bubble like birds outside a window...",
-      "music": [
-        "observatory",
-        0.6
-      ],
-      "exits": {
-        "Up": "Submerged Observation Deck",
-        "North": "Bell Landing"
-      }
+      "music": ["observatory", 0.6],
+      "exits": {"Up": "Submerged Observation Deck", "North": "Bell Landing"}
     },
     "Bell Landing": {
       "description": "A domed plaza where the air smells of salt and engine oil. Yamatone's Flying Super Car sits in a puddle of seawater, its wheels folded into fins and its headlights glowing. Marie has spread her father's notes across the hood.",
-      "music": [
-        "tomb",
-        0.6
-      ],
-      "exits": {
-        "South": "Sunken Stair",
-        "North": "Drowned Avenue"
-      },
+      "music": ["tomb", 0.6],
+      "exits": {"South": "Sunken Stair", "North": "Drowned Avenue"},
       "npcs": [
-        "marie",
-        "yamatone"
+        {"id": "marie", "requires": {"not_flags": ["act3_started"]}},
+        {"id": "yamatone", "requires": {"not_flags": ["act3_started"]}}
+      ],
+      "extra": [
+        {
+          "requires": {"flags": ["act3_started"]},
+          "text": "The Super Car is gone. Only a puddle of oil remains where it was docked."
+        }
       ]
     },
     "Drowned Avenue": {
       "description": "The great avenue of the sunken city. Seawater laps at your ankles. Statues of the Golden Judge line both sides of the street, their faces worn smooth by ten thousand years of tides. Street lamps flicker along the way... most of them.",
       "extra": [
         {
-          "requires": {
-            "not_flags": [
-              "archive_unsealed"
-            ]
-          },
+          "requires": {"not_flags": ["archive_unsealed"]},
           "text": "To the north, a wall of solid crystal seals the archive doors."
         },
         {
-          "requires": {
-            "not_flags": [
-              "market_cleared"
-            ]
-          },
+          "requires": {"not_flags": ["market_cleared"]},
           "text": "To the east, a collapsed arch has buried the market entrance in rubble."
         }
       ],
-      "music": [
-        "town",
-        0.6
-      ],
+      "music": ["town", 0.6],
       "exits": {
         "South": "Bell Landing",
         "North": {
           "to": "Spirit Archive",
-          "requires": {
-            "flags": [
-              "archive_unsealed"
-            ]
-          },
+          "requires": {"flags": ["archive_unsealed"]},
           "blocked_text": "A wall of crystal, harder than steel, seals the archive. You can see shapes moving inside."
         },
         "East": {
           "to": "Coral Market",
-          "requires": {
-            "flags": [
-              "market_cleared"
-            ]
-          },
+          "requires": {"flags": ["market_cleared"]},
           "blocked_text": "Tons of fallen stone block the market entrance. No arm could move it... but not every force is an arm."
         },
         "West": "Hall of Champions"
       },
       "items": [],
-      "encounters": [
-        {
-          "enemy": "lantern_angler",
-          "flag": "avenue_angler_defeated"
-        }
-      ],
+      "encounters": [{"enemy": "lantern_angler", "flag": "avenue_angler_defeated"}],
       "interactions": [
         {
           "item": "Silver Baton",
@@ -460,35 +243,18 @@
       "description": "A circular library where crystal tablets float in the air like slow snowflakes, each one glowing with Atlantean script. In the center, an old man of pale light drifts with his eyes closed.",
       "extra": [
         {
-          "requires": {
-            "not_flags": [
-              "spirit_archivist_freed"
-            ]
-          },
+          "requires": {"not_flags": ["spirit_archivist_freed"]},
           "text": "The old spirit is asleep, trapped in a dream ten thousand years long. Perhaps water could wake him."
         },
         {
-          "requires": {
-            "flags": [
-              "spirit_archivist_freed"
-            ]
-          },
+          "requires": {"flags": ["spirit_archivist_freed"]},
           "text": "The Archivist hovers among his tablets, awake and humming to himself."
         }
       ],
-      "music": [
-        "gallery",
-        0.5
-      ],
-      "exits": {
-        "South": "Drowned Avenue"
-      },
-      "items": [
-        "Glowmoss"
-      ],
-      "npcs": [
-        "archivist"
-      ],
+      "music": ["gallery", 0.5],
+      "exits": {"South": "Drowned Avenue"},
+      "items": ["Glowmoss"],
+      "npcs": ["archivist"],
       "interactions": [
         {
           "item": "Hydroflask",
@@ -506,43 +272,22 @@
       "description": "Rows of stone market stalls, overgrown with coral in every color. Baskets of petrified fruit still sit on the counters. At the back, the ghost of a merchant sleeps slumped over her scales.",
       "extra": [
         {
-          "requires": {
-            "not_flags": [
-              "spirit_merchant_freed"
-            ]
-          },
+          "requires": {"not_flags": ["spirit_merchant_freed"]},
           "text": "The merchant's spirit stirs in her sleep, murmuring prices in a dead language."
         },
         {
-          "requires": {
-            "flags": [
-              "spirit_merchant_freed"
-            ]
-          },
+          "requires": {"flags": ["spirit_merchant_freed"]},
           "text": "The merchant's stall is empty. Only a faint scent of spice remains."
         }
       ],
-      "music": [
-        "town",
-        0.5
-      ],
-      "exits": {
-        "West": "Drowned Avenue",
-        "East": "Tide Temple"
-      },
-      "encounters": [
-        {
-          "enemy": "shell_crab",
-          "flag": "market_crab_defeated"
-        }
-      ],
+      "music": ["town", 0.5],
+      "exits": {"West": "Drowned Avenue", "East": "Tide Temple"},
+      "encounters": [{"enemy": "shell_crab", "flag": "market_crab_defeated"}],
       "interactions": [
         {
           "item": "Hydroflask",
           "flag": "spirit_merchant_freed",
-          "add_items": [
-            "Coral Salve"
-          ],
+          "add_items": ["Coral Salve"],
           "beats": [
             "You tip the Hydroflask over the sleeping merchant.",
             "She wakes with a start, and laughs, a bright sound in the silent market.",
@@ -554,110 +299,55 @@
     },
     "Tide Temple": {
       "description": "A temple of blue stone, half-flooded with warm water. Pillars carved like waves hold up the ceiling. To the north, scalding steam roars from vents in the floor, hiding an inner door.",
-      "music": [
-        "church",
-        0.5
-      ],
+      "music": ["church", 0.5],
       "exits": {
         "West": "Coral Market",
         "North": {
           "to": "Inner Sanctum",
-          "requires": {
-            "items": [
-              "Swashbuckler Armor"
-            ]
-          },
+          "requires": {"items": ["Swashbuckler Armor"]},
           "blocked_text": "The steam is hot enough to strip flesh. You have none to lose, but even bone would crack in that heat. You would need armor.",
           "pass_text": "The Swashbuckler Armor glows red, then gold, as you march through the scalding steam unharmed."
         }
       },
-      "items": [
-        "Glowmoss"
-      ],
-      "encounters": [
-        {
-          "enemy": "brine_phantom",
-          "flag": "temple_phantom_defeated"
-        }
-      ]
+      "items": ["Glowmoss"],
+      "encounters": [{"enemy": "brine_phantom", "flag": "temple_phantom_defeated"}]
     },
     "Inner Sanctum": {
       "description": "A small round chamber, eerily quiet after the roar of the vents. An altar of white coral stands in the center. On it rests a crystal flask... and beside it, an empty cradle shaped for a great round lens. Fresh rubber bootprints lead away from it.",
-      "music": [
-        "church",
-        0.4
-      ],
-      "exits": {
-        "South": "Tide Temple"
-      },
-      "items": [
-        "Hydroflask"
-      ],
-      "encounters": [
-        {
-          "enemy": "tide_guardian",
-          "flag": "sanctum_guardian_defeated"
-        }
-      ]
+      "music": ["church", 0.4],
+      "exits": {"South": "Tide Temple"},
+      "items": ["Hydroflask"],
+      "encounters": [{"enemy": "tide_guardian", "flag": "sanctum_guardian_defeated"}]
     },
     "Hall of Champions": {
       "description": "A long hall lined with empty alcoves, each one made to hold a bronze warrior. Only one alcove at the far end was ever filled. To the north, the floor ends at the edge of a black abyss.",
       "extra": [
         {
-          "requires": {
-            "flags": [
-              "champion_defeated"
-            ],
-            "not_flags": [
-              "spirit_champion_freed"
-            ]
-          },
+          "requires": {"flags": ["champion_defeated"], "not_flags": ["spirit_champion_freed"]},
           "text": "A faint ghost sleeps inside the champion's empty alcove: the warrior who once wore the armor."
         },
         {
-          "requires": {
-            "flags": [
-              "spirit_champion_freed"
-            ]
-          },
+          "requires": {"flags": ["spirit_champion_freed"]},
           "text": "The champion's alcove is empty, and at peace."
         }
       ],
-      "music": [
-        "armory",
-        0.4
-      ],
+      "music": ["armory", 0.4],
       "exits": {
         "East": "Drowned Avenue",
         "North": {
           "to": "Abyssal Stables",
-          "requires": {
-            "items": [
-              "Red Cape"
-            ]
-          },
+          "requires": {"items": ["Red Cape"]},
           "blocked_text": "The abyss drops away into darkness. Far across it, you can see the lights of great pens and Nazō's floodlights.",
           "pass_text": "The Red Cape spreads wide, and you sail across the abyss on a warm updraft."
         }
       },
-      "items": [
-        "Swashbuckler Armor"
-      ],
-      "encounters": [
-        {
-          "enemy": "atlantean_champion",
-          "flag": "champion_defeated"
-        }
-      ],
+      "items": ["Swashbuckler Armor"],
+      "encounters": [{"enemy": "atlantean_champion", "flag": "champion_defeated"}],
       "interactions": [
         {
           "item": "Hydroflask",
           "flag": "spirit_champion_freed",
-          "requires": {
-            "flags": [
-              "champion_defeated"
-            ]
-          },
+          "requires": {"flags": ["champion_defeated"]},
           "beats": [
             "You pour a drop of living water into the empty alcove.",
             "The ghost of a young soldier wakes, and looks down at the armor you wear.",
@@ -670,79 +360,122 @@
     },
     "Abyssal Stables": {
       "description": "Vast pens carved into the cliff face, each big enough to hold a ship. In them sleep the war-machines of Atlantis: bronze rays, iron whales, crystal eels, all dark. Nazō's floodlights and cables are everywhere. To the east, a bronze manta-machine floats at the edge of the harbor channel, waiting for a rider.",
-      "music": [
-        "lab",
-        0.6
-      ],
+      "music": ["lab", 0.6],
       "exits": {
         "South": "Hall of Champions",
         "East": {
           "to": "Drowned Harbor",
-          "requires": {
-            "items": [
-              "Spectral Reins"
-            ]
-          },
+          "requires": {"items": ["Spectral Reins"]},
           "blocked_text": "The harbor channel is far too deep and wide to cross. The bronze manta stirs as you approach, but you have no way to command it.",
           "pass_text": "You cast the Spectral Reins over the bronze manta. Its eyes light up. It carries you across the channel like a great metal bird."
         }
       },
-      "items": [
-        "Spectral Reins",
-        "Coral Salve"
-      ],
-      "encounters": [
-        {
-          "enemy": "nazo_frogman",
-          "flag": "stables_frogman_defeated"
-        }
-      ]
+      "items": ["Spectral Reins", "Coral Salve"],
+      "encounters": [{"enemy": "nazo_frogman", "flag": "stables_frogman_defeated"}]
     },
     "Drowned Harbor": {
       "description": "The harbor of the sunken city, a black lagoon beneath the great dome. Gorgo's flagship, a rusted submarine with Nazō's insignia on its tower, is moored at the old stone docks.",
       "extra": [
         {
-          "requires": {
-            "flags": [
-              "gorgo_defeated"
-            ]
-          },
+          "requires": {"flags": ["gorgo_defeated"]},
           "text": "The Leviathan lies peacefully on the harbor floor. Gorgo's submarine is gone."
         }
       ],
-      "music": [
-        "observatory",
-        0.7
-      ],
-      "exits": {
-        "West": "Abyssal Stables"
-      },
+      "music": ["observatory", 0.7],
+      "exits": {"West": "Abyssal Stables"},
       "encounters": [
         {
           "enemy": "gorgo",
           "flag": "gorgo_defeated",
-          "victory": {
-            "beats": "act2_end",
-            "set_flags": [
-              "act2_complete"
-            ],
-            "end_act": "II"
-          }
+          "victory": {"beats": "act2_end", "set_flags": ["act2_complete"], "end_act": "II"}
+        }
+      ]
+    },
+    "Assembly Bay": {
+      "description": "A cavernous hangar of scaffolding, cranes, and welding sparks. Half-built war machines hang from chains like sides of meat. Every one of them bears Nazō's insignia.",
+      "extra": [
+        {
+          "requires": {"flags": ["five_finger_destroyed"]},
+          "text": "Five Finger's wreck lies across the scaffolding, dark and silent."
+        }
+      ],
+      "music": ["armory", 0.5],
+      "exits": {"West": "Hall of Ancient Tech", "North": "Orbital Control", "East": "Generator Core"},
+      "items": ["Glowmoss"],
+      "encounters": [{"enemy": "five_finger_mk2", "flag": "five_finger_destroyed"}]
+    },
+    "Orbital Control": {
+      "description": "A round room beneath a crystal dome, where the Atlanteans once charted the stars. Nazō has covered the walls with screens, and every one shows the same thing: the red curve of Icarus's path, ending at the Earth.",
+      "music": ["observatory", 0.6],
+      "exits": {"South": "Assembly Bay"},
+      "items": ["Icarus Data", "Coral Salve"],
+      "encounters": [{"enemy": "orbital_drone", "flag": "orbital_drone_defeated"}]
+    },
+    "Generator Core": {
+      "description": "A shaft of humming crystal generators that plunges deep into the island. Nazō's cables are bolted into every one of them. Beyond a dark gap to the east, the far end of a bridge flickers faintly.",
+      "extra": [
+        {
+          "requires": {"not_flags": ["bridge_powered"]},
+          "text": "The ancient generators idle, fighting Nazō's cables. They are Atlantean machines. Perhaps they would answer an Atlantean command."
+        },
+        {
+          "requires": {"flags": ["bridge_powered"]},
+          "text": "The generators roar with golden light. To the east, the Spectral Bridge burns bright and solid."
+        }
+      ],
+      "music": ["lab", 0.7],
+      "exits": {
+        "West": "Assembly Bay",
+        "East": {
+          "to": "Spectral Bridge",
+          "requires": {"flags": ["bridge_powered"]},
+          "blocked_text": "The bridge to the east is made of hard light, and it is dark. Nazō has cut its power. Stepping out there would mean a fall into the sea."
+        }
+      },
+      "encounters": [{"enemy": "core_warden", "flag": "core_warden_defeated"}],
+      "interactions": [
+        {
+          "item": "Spectral Reins",
+          "flag": "bridge_powered",
+          "beats": [
+            "You cast the Spectral Reins across the generators. Threads of pale light sink into the crystal, one by one.",
+            "The ancient machines shudder... and answer. Nazō's cables spark and burst from their sockets.",
+            "Golden light races up the shaft and out across the gap. With a sound like a struck bell, the Spectral Bridge blazes into being."
+          ]
+        }
+      ]
+    },
+    "Spectral Bridge": {
+      "description": "A bridge of solid golden light arcs over the sea toward a tower of black steel. The wind howls. Above, Icarus fills a quarter of the sky, and the sea below glows red with its reflection.",
+      "music": ["cliffs", 0.6],
+      "exits": {
+        "West": "Generator Core",
+        "North": {
+          "to": "Cannon Chamber",
+          "confirm": "The doors of the Cannon Chamber loom ahead. Dr. Nazō is waiting. Once you enter, there is no turning back. Are you ready?"
+        }
+      },
+      "encounters": [{"enemy": "storm_wraith", "flag": "bridge_wraith_defeated"}]
+    },
+    "Cannon Chamber": {
+      "description": "The heart of Nazō's fortress, where the Spectral Cannon points at the stars.",
+      "music": ["tech", 0.8],
+      "exits": {},
+      "events": [{"id": "unprepared", "requires": {"all_relics": false}, "ending": "lose"}],
+      "encounters": [
+        {
+          "enemy": "nazo",
+          "flag": "nazo_defeated",
+          "requires": {"all_relics": true},
+          "defeat_ending": "defeat",
+          "victory": {"ending": true}
         }
       ]
     }
   },
   "camps": [
-    {
-      "room": "Ancient Tomb"
-    },
-    {
-      "room": "Bell Landing",
-      "requires": {
-        "flags": [
-          "act2_started"
-        ]
-      }
-    }
+    {"room": "Ancient Tomb"},
+    {"room": "Bell Landing", "requires": {"flags": ["act2_started"]}},
+    {"room": "Ancient Atlantean Lab", "requires": {"flags": ["act3_started"]}}
   ]
 }

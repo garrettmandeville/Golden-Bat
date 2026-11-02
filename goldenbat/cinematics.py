@@ -76,15 +76,15 @@ def game_start_message(story):
     clear()
     play_beats(story["act1_intro"])
 
-def requirements_met(state, requires):
-    """Checks an ending's 'requires' block from data/story.json against the game state."""
-    if requires.get("all_relics") and not state.has_all_relics():
-        return False
-    return all(item in state.inventory for item in requires.get("items", []))
-
-def play_ending(state, story):
-    """Plays the first ending in data/story.json whose requirements are met."""
-    ending = next(e for e in story["endings"] if requirements_met(state, e["requires"]))
+def play_ending(state, story, ending_id = None):
+    """
+    Plays an ending from data/story.json: the one with the given id, or else the first one
+    whose requirements are met.
+    """
+    if ending_id:
+        ending = next(e for e in story["endings"] if e["id"] == ending_id)
+    else:
+        ending = next(e for e in story["endings"] if state.meets(e["requires"]))
 
     audio.stop()
     audio.play_bgm("boss")
@@ -102,3 +102,4 @@ def play_ending(state, story):
         audio.play_sfx(ending["sfx_after_banner"])
 
     audio.fade(10000)
+    scroll_text(story["thanks"])

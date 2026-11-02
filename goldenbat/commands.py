@@ -74,6 +74,8 @@ def cmd_go(state, target):
         scroll_text("\nYou cannot go that way.")
     elif not state.meets(exit.get("requires")):
         scroll_text(f"\n{exit['blocked_text']}")
+    elif "confirm" in exit and input(f"\n{exit['confirm']} (y/n): ").lower().strip() != 'y':
+        scroll_text("\nYou step back. Not yet.")
     else:
         if "pass_text" in exit:
             scroll_text(f"\n{exit['pass_text']}")

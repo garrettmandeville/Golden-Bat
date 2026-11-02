@@ -10,7 +10,7 @@ import random
 from goldenbat.audio import audio
 from goldenbat.data import load_json
 from goldenbat.state import MAX_HP, MAX_ENERGY
-from goldenbat.text import scroll_text, pause, clear, GOLD, RED, RESET
+from goldenbat.text import scroll_text, play_beats, pause, clear, GOLD, RED, RESET
 
 ENEMIES = load_json("enemies.json")
 
@@ -21,6 +21,8 @@ LAUGH_FRIGHT_CHANCE = 0.4
 FEARFUL_KINDS = ("human", "beast")
 # The Spectral Reins can seize beasts and ancient machines, but not people or spirits
 BINDABLE_KINDS = ("beast", "machine", "guardian")
+# Damage multiplier against an enemy whose weak point has been exposed by Analyze
+ANALYZE_BONUS = 1.5
 
 
 class Battle:
@@ -28,14 +30,19 @@ class Battle:
 
     def __init__(self, state, enemy_id):
         self.state = state
+        self.vanished = False
+        self.log = []
+        self.set_enemy(enemy_id)
+
+    def set_enemy(self, enemy_id):
+        """Loads an enemy (or a boss's next phase) and resets its per-enemy battle state."""
         self.enemy = ENEMIES[enemy_id]
         self.name = self.enemy["name"]
         self.enemy_hp = self.enemy["hp"]
         self.turn = 0
-        self.vanished = False
         self.enemy_skips = False
         self.enemy_bound = False
-        self.log = []
+        self.analyzed = False
 
     # ---- Helpers ----
 
@@ -48,10 +55,12 @@ class Battle:
         return self.enemy["kind"] == "spirit"
 
     def damage_enemy(self, amount, effect = None):
-        """Deals damage (doubled if the enemy is weak to the effect) and logs it."""
+        """Deals damage (doubled if the enemy is weak to the effect, +50% once analyzed) and logs it."""
         if effect in self.enemy.get("weak_to", []):
             amount *= 2
             self.log.append("It's a weak point!")
+        if self.analyzed:
+            amount = round(amount * ANALYZE_BONUS)
         self.enemy_hp = max(0, self.enemy_hp - amount)
         self.log.append(f"{amount} damage to {self.name}.")
 
@@ -80,7 +89,8 @@ class Battle:
         print("=" * 60)
         print(f"  {GOLD}GOLDEN BAT{RESET}   HP {state.hp}/{MAX_HP}   ENERGY {state.energy}/{MAX_ENERGY}"
               f"{'   (VANISHED)' if self.vanished else ''}")
-        print(f"  {RED}{self.name}{RESET}   HP {self.enemy_hp}/{self.enemy['hp']}")
+        print(f"  {RED}{self.name}{RESET}   HP {self.enemy_hp}/{self.enemy['hp']}"
+              f"{'   (ANALYZED)' if self.analyzed else ''}")
         print("=" * 60)
         for line in self.log:
             print(f"  {line}")
@@ -157,7 +167,30 @@ class Battle:
                 self.log.append(f"Ghostly reins lash around {self.name}. It is yours, for one move.")
             else:
                 self.log.append(f"The reins find nothing to hold. {self.name} cannot be ridden.")
+        elif effect == "analyze":
+            self.analyzed = True
+            self.log.extend(self.analysis())
         return True
+
+    def analysis(self):
+        """What the Icarus Data's Analyze reveals about the enemy."""
+        kind = self.enemy["kind"]
+        lines = [f"Weak point exposed! Your attacks deal +50% damage to {self.name}."]
+        notes = []
+        if kind == "spirit":
+            notes.append("only Silver Ray and Living Water can harm it")
+        if kind in BINDABLE_KINDS:
+            notes.append("the Spectral Reins can seize it")
+        if kind in FEARFUL_KINDS and not self.enemy.get("boss"):
+            notes.append("it can be frightened")
+        if "push" in self.enemy.get("weak_to", []):
+            notes.append("Gale Push deals double damage")
+        if notes:
+            lines.append("Analysis: " + "; ".join(notes) + ".")
+        heavy = [move["name"] for move in self.enemy["moves"] if move.get("heavy")]
+        if heavy:
+            lines.append(f"Heavy attack: {', '.join(heavy)}. Interrupt it, dodge it, or turn it back.")
+        return lines
 
     def use_item(self):
         options = [(f"{name} x{self.state.inventory.count(name)}", name) for name in self.consumables()]
@@ -237,10 +270,25 @@ class Battle:
             if not used_turn:
                 continue
             if self.enemy_hp <= 0:
-                return "won"
+                if "next_phase" not in self.enemy:
+                    return "won"
+                self.change_phase()
+                continue
             self.enemy_turn()
             if self.state.hp <= 0:
                 return "lost"
+
+    def change_phase(self):
+        """A boss rises again in its next form, with a short cutscene."""
+        clear()
+        play_beats(self.enemy["phase_text"])
+        pause()
+        # Some bosses give Golden Bat a second wind between phases
+        restore = self.enemy.get("phase_restore", {})
+        self.state.hp = min(MAX_HP, self.state.hp + restore.get("hp", 0))
+        self.state.energy = min(MAX_ENERGY, self.state.energy + restore.get("energy", 0))
+        self.set_enemy(self.enemy["next_phase"])
+        self.log = [f"{self.name} rises!"]
 
     def victory(self):
         """Shows the victory screen and hands out Energy and loot."""

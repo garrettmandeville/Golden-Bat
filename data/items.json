@@ -58,10 +58,7 @@
       "summary": "staggers foes; interrupts heavy attacks",
       "text": "Golden Bat thrusts out a skeletal hand. A howling gale slams into {enemy}!"
     },
-    "on_pickup": {
-      "set_flag": "secret_path_open",
-      "text": "(!) THE KINESIS STONE VIBRATES... (!)"
-    }
+    "on_pickup": {"set_flag": "secret_path_open", "text": "(!) THE KINESIS STONE VIBRATES... (!)"}
   },
   "Spectral Reins": {
     "description": "Ethereal bindings used to control giant ancient machines.",
@@ -76,7 +73,14 @@
   },
   "Icarus Data": {
     "description": "Critical data about the rogue planet's collision course.",
-    "relic": true
+    "relic": true,
+    "ability": {
+      "name": "Analyze",
+      "effect": "analyze",
+      "cost": 1,
+      "summary": "exposes a weak point: +50% damage for the rest of the fight",
+      "text": "Golden Bat consults the Icarus Data. Atlantean script races across the crystal, mapping {enemy} line by line."
+    }
   },
   "Botan Rice Candy": {
     "description": "A classic Japanese treat with an edible wrapper. It smells sweet, like fortune and nostalgia."
@@ -98,7 +102,7 @@
     "description": "Professor Mire's handwriting: '...the Atlanteans did not worship Golden Bat. They feared him. \"He is justice without mercy,\" reads the frieze, \"and the wicked hear his laughter in their sleep.\"'"
   },
   "Journal Page II": {
-    "description": "Professor Mire's handwriting: '...seven relics were forged to arm the Golden Judge. Three lie in the ruins above. The rest sank with the city below.'"
+    "description": "Professor Mire's handwriting: '...seven relics were forged to arm the Golden Judge. Three lie in the ruins above, three sank with the city below, and the seventh, they say, \"belongs to the sky.\"'"
   },
   "Journal Page III": {
     "description": "Professor Mire's handwriting: '...Nazō's men are searching for the lens in the wrong place. It is not in the ruins. It is BENEATH them. Marie must never come here.'"

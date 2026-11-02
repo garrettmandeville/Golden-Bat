@@ -5,9 +5,12 @@
 > **Unofficial fan game.** Inspired by the 1967 anime *Golden Bat* (*Ōgon Bat*). Not affiliated with or endorsed by the rights holders. See [Disclaimer](#%EF%B8%8F-disclaimer).
 
 ## 🌟 Features
-- **Classic Text-Adventure Gameplay:** Navigate rooms, search for items, and uncover secrets using terminal commands.
+- **A Three-Act Story:** Battle through the Ruins of Atlantis, dive to the Sunken City, and storm Dr. Nazō's fortress beneath the red star of Icarus.
+- **Classic Text-Adventure Gameplay:** Navigate 27 rooms, search for items, solve relic puzzles, and uncover secrets using terminal commands.
+- **Turn-Based Combat:** Read each enemy's next move, then answer with seven relic abilities: Silver Ray, Vanish, Gale Push, Iron Guard, Living Water, Bind, and Analyze.
+- **Allies and Side Quests:** Marie Mire keeps camp, revives you, and saves your progress; Professor Yamatone brings the Flying Super Car.
 - **Optional Audio:** Per-room music and sound effects via `pygame.mixer`. Audio files aren't included; the game runs silently without them, and picks up any you add (see [assets/README.md](assets/README.md)).
-- **Multiple Endings:** Your inventory and exploration determine the fate of Earth. Can you unlock the True Ending?
+- **Multiple Endings:** Your relics, quests, and choices determine the fate of Earth. Can you unlock the True Ending?
 - **Retro Terminal Aesthetic:** Dynamic scrolling text with inline delays, color formatting, and cinematic screen clears.
 
 ## 🎮 How to Play

@@ -32,16 +32,24 @@ def get_user_input(state):
     return user_input
 
 def run_room_events(state, story):
-    """Plays any one-time events in the room whose requirements are met."""
+    """
+    Plays any one-time events in the room whose requirements are met.
+
+    Returns:
+        str | None: The id of an ending to play, if an event triggers one.
+    """
     for event in state.room.get("events", []):
         seen_flag = f"event_{event['id']}"
         if seen_flag not in state.flags and state.meets(event.get("requires")):
             state.flags.add(seen_flag)
             state.flags.update(event.get("set_flags", []))
+            if "ending" in event:
+                return event["ending"]
             clear()
             play_beats(story[event["beats"]])
             pause()
             clear()
+    return None
 
 def handle_defeat(state, story):
     """
@@ -71,14 +79,17 @@ def enter_room(state, story):
     Runs everything that happens on arriving in a room.
 
     Returns:
-        str: "continue", "act_end", or "game_over".
+        str: "continue", "act_end", "ending", or "game_over".
     """
     state.just_entered = False
     if state.current_room not in state.visited:
         state.visited.add(state.current_room)
         describe_room(state)
         pause()
-    run_room_events(state, story)
+    ending = run_room_events(state, story)
+    if ending:
+        play_ending(state, story, ending)
+        return "ending"
 
     encounter = state.next_encounter()
     if not encounter:
@@ -92,6 +103,10 @@ def enter_room(state, story):
         pause()
         clear()
     elif result == "lost":
+        # No revives in the final battle: falling there is an ending of its own
+        if "defeat_ending" in encounter:
+            play_ending(state, story, encounter["defeat_ending"])
+            return "ending"
         if not handle_defeat(state, story):
             return "game_over"
     else:
@@ -100,6 +115,9 @@ def enter_room(state, story):
         state.flags.update(victory.get("set_flags", []))
         if "beats" in victory:
             play_beats(story[victory["beats"]])
+        if victory.get("ending"):
+            play_ending(state, story)
+            return "ending"
         if victory.get("end_act"):
             save_game(state)
             return "act_end"
@@ -138,11 +156,6 @@ def play(state, story):
     """
     while True:
         audio.play_room_music(state.room.get("music"))
-
-        # Entering the villain's room ends the game
-        if 'villain' in state.room:
-            play_ending(state, story)
-            return "ending"
 
         if state.just_entered:
             result = enter_room(state, story)
